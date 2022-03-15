@@ -23,5 +23,6 @@
 int	ft_check(int *tab);
 int	*ft_parse(char *tab);
 int	ft_putstr(char *s);
+int ft_numlen(int *n);
 
 #endif

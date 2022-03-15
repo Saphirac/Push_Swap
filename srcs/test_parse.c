@@ -1,5 +1,5 @@
 
-************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   test_parse.c                                       :+:      :+:    :+:   */
@@ -36,19 +36,24 @@ int	ft_check(int *tab)
 
 int	*ft_parse(char *tab)
 {
-	int	*tab;
+	int	*test;
 	int	i;
+	int	j;
 	char	**split;
 
-	i = 0;
+	j = 0;
 	split = ft_split(tab, ' ');
-	while (split[i])
-		i++;
-	tab = malloc(sizeof(int) * (i + 1));
+	while (split[j])
+		j++;
+	test = malloc(sizeof(int) * (j + 1));
 	i = 0;
 	while (split[i])
 	{
-		tab[i] = ft_atoi(split[i]);
+		test[i] = ft_atoi(split[i]);
 		i++;
 	}
+	printf("testlen : %d\n", ft_numlen(test));
+	if (ft_numlen(test) != j || ft_numlen(test) == 1 || ft_check(test) == 1)
+		return (NULL);
+	return (test);
 }

@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/14 17:24:07 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/15 12:55:04 by mcourtoi         ###   ########.fr       */
+/*   Created: 2022/03/15 12:40:19 by mcourtoi          #+#    #+#             */
+/*   Updated: 2022/03/15 12:51:51 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
-int	ft_putstr(char *s)
+char    *ft_sa(int *a)
 {
-	return(write(1, s, ft_strlen(s)));
+    int swap;
+    swap = a[0];
+    a[0] = a[1];
+    a[1] = swap;
+    return ("sa");
 }
 
-int	ft_numlen(int *n)
+char    *ft_sb(int *b)
 {
-	int	i;
-
-	i = 0;
-	if (n[i] == 0)
-		i++;
-	while (n[i])
-		i++;
-	return (i);
+    int swap;
+    swap = b[0];
+    b[0] = b[1];
+    b[1] = swap;
+    return ("sb");
 }
 
-int	*ft_numjoin(int	*a, int *b)
+char    *ft_ss(int *a, int *b)
 {
-	
+    ft_sa(a);
+    ft_sb(b);
+    return ("ss"); 
 }
