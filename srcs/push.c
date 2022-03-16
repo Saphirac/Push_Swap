@@ -12,3 +12,7 @@
 
 #include "push_swap.h"
 
+char    *ft_pa(int *a, int *b)
+{
+    
+}

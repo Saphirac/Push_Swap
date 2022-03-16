@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 
 int	ft_putstr(char *s)
 {
@@ -28,7 +29,30 @@ int	ft_numlen(int *n)
 	return (i);
 }
 
-int	*ft_numjoin(int	*a, int *b)
+/*int	*ft_numjoin(int	*a, int *b)
 {
+	int	*c;
+	int	i;
+	int	n;
 	
-}
+	if (!a)
+	{
+		a = malloc(sizeof(int) * 1);
+		a[0] = 0;
+	}
+	if (!a || !b)
+		return (NULL);
+	c = malloc(sizeof(int) * (ft_numlen(a) + ft_numlen(b) + 1));
+	if (!a)
+		return (NULL);
+	i = 0;
+	n = 0;
+	while (a[i++])
+		c[n++] = a[i - 1];
+	i = 0;
+	while (b[i++])
+		c[n++] = b[i - 1];
+	c[n] = 0;
+	free(a);
+	return (c);
+}*/

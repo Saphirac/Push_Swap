@@ -13,47 +13,42 @@
 
 #include "push_swap.h"
 
-int	ft_check(int *tab)
+int	ft_check(t_list *li)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 1;
-	while (tab[i])
+	t_list	*temp;
+	
+	temp = li->next;
+	while (li)
 	{
-		while (tab[j])
+		while (temp)
 		{
-			if (tab[i] == tab[j])
+			if (li->value == temp->value)
 				return (1);
-			j++;
+			temp = temp->next;
 		}
-		i++;
-		j = i + 1;
+		li = li->next;
+		temp = li->next;
 	}
 	return (0);
 }
 
-int	*ft_parse(char *tab)
+t_list	*ft_parse_one(char *tab)
 {
-	int	*test;
-	int	i;
-	int	j;
+	t_list	*test;
 	char	**split;
+	int	j;
 
-	j = 0;
 	split = ft_split(tab, ' ');
+	test = ft_lstnew(0, 0);
+	j = 0;
 	while (split[j])
-		j++;
-	test = malloc(sizeof(int) * (j + 1));
-	i = 0;
-	while (split[i])
 	{
-		test[i] = ft_atoi(split[i]);
-		i++;
+		test->value = ft_atoi(split[j]);
+		test = test->next;
+		j++;
 	}
-	printf("testlen : %d\n", ft_numlen(test));
-	if (ft_numlen(test) != j || ft_numlen(test) == 1 || ft_check(test) == 1)
+	printf("testlen : %d\n", ft_lstsize(test));
+	if (ft_lstsize(test) != j || ft_lstsize(test) == 1 || ft_check(test) == 1)
 		return (NULL);
 	return (test);
 }

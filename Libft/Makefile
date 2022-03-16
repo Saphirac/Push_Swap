@@ -41,27 +41,27 @@ OBJS = ${SRCS:.c=.o}
 
 INC = ../includes
 
-BONUSOBJS := ${BONUS:.c=.o}
+BONUSOBJS = ${BONUS:.c=.o}
 
 FLAGS = -Wall -Wextra -Werror
 
 .c.o:
 	${CC} ${FLAGS} -I${INC} -c $< -o ${<:.c=.o}
 
-all:    ${NAME}
+all:	 ${NAME}
 
-${NAME}:    ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+${NAME}:    ${OBJS} ${BONUSOBJS}
+	ar rcs ${NAME} ${OBJS} ${BONUSOBJS}
 
 bonus: ${OBJS} ${BONUSOBJS}
 	ar rcs $(NAME) ${OBJS} ${BONUSOBJS}
 
 clean:
-	rm -f ${OBJS}
+	rm -f ${OBJS} ${BONUSOBJS}
 
 fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

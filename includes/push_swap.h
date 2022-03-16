@@ -20,8 +20,8 @@
 # include <stdarg.h>
 # include <libft.h>
 
-int	ft_check(int *tab);
-int	*ft_parse(char *tab);
+int	ft_check(t_list *tab);
+t_list	*ft_parse_one(char *tab);
 int	ft_putstr(char *s);
 int ft_numlen(int *n);
 
