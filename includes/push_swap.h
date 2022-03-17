@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/17 19:11:38 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/17 21:08:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ int    ft_pa(t_list **la, t_list **lb);
 int    ft_pb(t_list **lb, t_list **la);
 
 void    ft_pop_front(t_list **li);
+
+/*---Rotate---*/
+int ft_rr(t_list *la, t_list *lb);
+int ft_ra(t_list *la, int c);
+int ft_rb(t_list *lb, int c);
+
+/*---Reverse_Rotate---*/
+int ft_rrr(t_list **la, t_list **lb);
+int ft_rra(t_list **la, int c);
+int ft_rrb(t_list **lb, int c);
+
+void    ft_pop_back(t_list **li);
+
+
 
 
 

@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/17 19:48:47 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/17 21:01:51 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void    ft_pop_front(t_list **li)
     if (li)
     {
         tmp = (*li)->next;
-        free(li);
-        li = NULL;
+        ft_lstdelone(*li);
+        *li = NULL;
         *li = tmp;
     }
 }
