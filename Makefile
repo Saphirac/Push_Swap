@@ -14,8 +14,8 @@ NAME = push_swap
 
 CC = gcc
 
-SRCS = ./srcs/utils.c ./srcs/test_parse.c ./srcs/main.c \
-		./srcs/swap.c
+SRCS = ./srcs/utils.c ./srcs/parse.c ./srcs/main.c \
+		./srcs/swap.c ./srcs/checks.c
 
 LIBFT_PATH = ./Libft/
 LIBFT = ${LIBFT_PATH}libft.a

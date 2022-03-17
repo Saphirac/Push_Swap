@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:24:07 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/15 12:55:04 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/03/17 03:46:43 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@ int	ft_numlen(int *n)
 	while (n[i])
 		i++;
 	return (i);
+}
+
+void	ft_free(t_list *li)
+{
+	t_list	*tmp;
+
+	while (li)
+	{
+		tmp = li->next;
+		free(li);
+		li = tmp;
+	}
 }
 
 /*int	*ft_numjoin(int	*a, int *b)
