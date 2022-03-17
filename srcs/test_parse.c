@@ -32,23 +32,17 @@ int	ft_check(t_list *li)
 	return (0);
 }
 
-t_list	*ft_parse_one(char *tab)
+t_list	**ft_parse_one(t_list **test, char *tab)
 {
-	t_list	*test;
 	char	**split;
 	int	j;
 
 	split = ft_split(tab, ' ');
-	test = ft_lstnew(0, 0);
 	j = 0;
 	while (split[j])
 	{
-		test->value = ft_atoi(split[j]);
-		test = test->next;
+		ft_lstadd_back(test, ft_lstnew(ft_atoi(split[j]), j));
 		j++;
 	}
-	printf("testlen : %d\n", ft_lstsize(test));
-	if (ft_lstsize(test) != j || ft_lstsize(test) == 1 || ft_check(test) == 1)
-		return (NULL);
 	return (test);
 }

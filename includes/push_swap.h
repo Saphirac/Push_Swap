@@ -21,7 +21,7 @@
 # include <libft.h>
 
 int	ft_check(t_list *tab);
-t_list	*ft_parse_one(char *tab);
+t_list	**ft_parse_one(t_list **test, char *tab);
 int	ft_putstr(char *s);
 int ft_numlen(int *n);
 

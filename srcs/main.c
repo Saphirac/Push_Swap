@@ -15,21 +15,27 @@
 int	main(int ac, char **av)
 {
 	//char	**argv;
-	t_list	*test;
+
+	(void)ac;
+	(void)av;
+	t_list	**test = NULL;
+	t_list	*head;
 	int	i;
 
-	i = 0;
 	/*argv = malloc(sizeof(char *) * ac);
 	while (av[i++])
 		argv[i] = av[i];*/
-	test = ft_parse_one(av[1]);
+	i = 0;
+	test = ft_parse_one(test, "1 2 3");
 	if (!test)
 		return (1);
-	printf("check : %d\n", ft_check(test));
-	while (test)
+	head = *test;
+	//printf("check : %d\n", ft_check(test));
+	while (head)
 	{
-		printf("%d ", test->value);
-		test = test->next;
+		printf("%d ", head->value);
+		head = head->next;
+		i++;
 	}
 	return (0);
 }
