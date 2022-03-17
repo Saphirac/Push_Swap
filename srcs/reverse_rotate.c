@@ -18,8 +18,7 @@ int ft_rra(t_list **la, int c)
 
     if (la)
     {
-        tmp = ft_lstlast(*la);
-        ft_pop_back(la);
+        tmp = ft_pop_back(la);
         ft_lstadd_front(la, tmp);
     }
     if (c == 0)
@@ -33,8 +32,7 @@ int ft_rrb(t_list **lb, int c)
 
     if (lb)
     {
-        tmp = ft_lstlast(*lb);
-        ft_pop_back(lb);
+        tmp = ft_pop_back(lb);
         ft_lstadd_front(lb, tmp);
     }
     if (c == 0)
@@ -49,15 +47,20 @@ int ft_rrr(t_list **la, t_list **lb)
     return (write(1, "rrr", 3));
 }
 
-void    ft_pop_back(t_list **li)
+t_list  *ft_pop_back(t_list **li)
 {
     t_list  *tmp;
+    t_list  *ret;
 
+    ret = NULL;
     if(li)
     {
         tmp = *li;
         while (tmp && tmp->next->next)
             tmp = tmp->next;
+        ret = ft_lstnew(tmp->next->value, tmp->next->index);
         ft_lstdelone(tmp->next);
+        tmp->next = NULL;
     }
+    return (ret);
 }

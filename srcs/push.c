@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/17 21:01:51 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/17 21:38:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int    ft_pb(t_list **lb, t_list **la)
     return (write(1, "pb", 2));
 }
 
-void    ft_pop_front(t_list **li)
+t_list  *ft_pop_front(t_list **li)
 {
     t_list  *tmp;
 

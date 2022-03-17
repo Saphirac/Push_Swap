@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/17 21:08:14 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/17 21:24:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int ft_rrr(t_list **la, t_list **lb);
 int ft_rra(t_list **la, int c);
 int ft_rrb(t_list **lb, int c);
 
-void    ft_pop_back(t_list **li);
+t_list  *ft_pop_back(t_list **li);
 
 
 

@@ -16,7 +16,7 @@ int ft_ra(t_list *la, int c)
 {
     int swap;
 
-    while (la)
+    while (la && la->next)
     {
         swap = la->value;
         la->value = la->next->value;
@@ -32,7 +32,7 @@ int ft_rb(t_list *lb, int c)
 {
     int swap;
 
-    while (lb)
+    while (lb && lb->next)
     {
         swap = lb->value;
         lb->value = lb->next->value;
