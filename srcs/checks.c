@@ -39,8 +39,8 @@ int ft_check_digits(char *str)
     }
     if (str[0] == '-')
         i--;
-    if (ft_strncmp(str, "-2147483649", 11) == FALSE 
-            || ft_strncmp(str, "2147483648", 10) == FALSE)
+    if (!ft_strncmp(str, "-2147483649", 11)
+            || !ft_strncmp(str, "2147483648", 10))
         return (1);
     if (i >= 11)
         return (1); 
@@ -63,13 +63,4 @@ int	ft_check_double(t_list *li)
 		li = li->next;
 	}
 	return (0);
-}
-
-int ft_check(t_list *li)
-{
-    if (ft_check_double(li) == TRUE)
-        return (1);
-    if (ft_check_sorted(li) == TRUE)
-        return (1);
-    return (0);
 }

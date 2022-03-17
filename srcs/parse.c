@@ -20,18 +20,19 @@ t_list	**ft_parse_one(t_list **test, char *tab)
 	int	j;
 
 	split = ft_split(tab, ' ');
-	j = 0;
-	while (split[j])
+	j = -1;
+	while (split[++j])
 	{
 		if (ft_check_digits(split[j]) == TRUE)
-			break;
+			{
+				write(1, "Error\n", 6);
+				return (NULL);
+			}
 		ft_lstadd_back(test, ft_lstnew(ft_atoi(split[j]), j));
-		j++;
 	}
-	head = *test;
 	free(split);
-	if (ft_check(head) == 1 || ft_lstsize(head) == 1 
-			|| ft_check_digits(split[j]) == TRUE)
+	head = *test;
+	if (ft_check_double(head) == 1)
 	{
 		write(1, "Error\n", 6);
 		return (NULL);
@@ -45,17 +46,18 @@ t_list	**ft_parse_two(t_list **test, char **tab)
 	t_list	*head;
 	int	j;
 
-	j = 0;
-	while(tab[j])
+	j = -1;
+	while(tab[++j])
 	{
 		if (ft_check_digits(tab[j]) == TRUE)
-			break;
+		{
+			write(1, "Error\n", 6);
+			return (NULL);
+		}
 		ft_lstadd_back(test, ft_lstnew(ft_atoi(tab[j]), j));
-		j++;
 	}
 	head = *test;
-	if (ft_check(head) == 1 || ft_lstsize(head) == 1 
-			|| ft_check_digits(tab[j]) == TRUE)
+	if (ft_check_double(head) == 1)
 	{
 		write(1, "Error\n", 6);
 		return (NULL);

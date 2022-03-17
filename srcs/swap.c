@@ -3,36 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:40:19 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/15 12:51:51 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/03/17 19:10:03 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char    *ft_sa(int *a)
+int    ft_sa(t_list *la, int c)
 {
     int swap;
-    swap = a[0];
-    a[0] = a[1];
-    a[1] = swap;
-    return ("sa");
+    
+    swap = la->value;
+    la->value = la->next->value;
+    la->next->value = swap;
+    
+    if (c == 0)
+        return (write(1, "sa", 2));
+    return (1);
 }
 
-char    *ft_sb(int *b)
+int    ft_sb(t_list *lb, int c)
 {
     int swap;
-    swap = b[0];
-    b[0] = b[1];
-    b[1] = swap;
-    return ("sb");
+    
+    swap = lb->value;
+    lb->value = lb->next->value;
+    lb->next->value = swap;
+    
+    if (c == 0)
+        return (write(1, "sb", 2));
+     return (1);
 }
 
-char    *ft_ss(int *a, int *b)
+int    ft_ss(t_list *la, t_list *lb)
 {
-    ft_sa(a);
-    ft_sb(b);
-    return ("ss"); 
+    ft_sa(la, 1);
+    ft_sb(lb, 1);
+    return (write(1, "ss", 2)); 
 }
