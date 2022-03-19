@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/17 21:38:28 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/19 01:00:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int    ft_pa(t_list **la, t_list **lb)
         if (lb)
         {
             head = *lb;
-            ft_lstadd_front(la, head);
+            ft_lstadd_front(la, ft_lstnew(head->value, head->index));
             ft_pop_front(lb);
         }
     }
@@ -37,14 +37,14 @@ int    ft_pb(t_list **lb, t_list **la)
         if (la)
         {
             head = *la;
-            ft_lstadd_front(lb, head);
+            ft_lstadd_front(lb, ft_lstnew(head->value, head->index));
             ft_pop_front(la);
         }
     }
     return (write(1, "pb", 2));
 }
 
-t_list  *ft_pop_front(t_list **li)
+void  ft_pop_front(t_list **li)
 {
     t_list  *tmp;
 
@@ -52,7 +52,6 @@ t_list  *ft_pop_front(t_list **li)
     {
         tmp = (*li)->next;
         ft_lstdelone(*li);
-        *li = NULL;
         *li = tmp;
     }
 }

@@ -19,7 +19,7 @@ int ft_rra(t_list **la, int c)
     if (la)
     {
         tmp = ft_pop_back(la);
-        ft_lstadd_front(la, tmp);
+        ft_lstadd_front(la, ft_lstnew(tmp->value, tmp->index));
     }
     if (c == 0)
         return (write(1, "rra", 3));
@@ -33,7 +33,7 @@ int ft_rrb(t_list **lb, int c)
     if (lb)
     {
         tmp = ft_pop_back(lb);
-        ft_lstadd_front(lb, tmp);
+        ft_lstadd_front(lb, ft_lstnew(tmp->value, tmp->index));
     }
     if (c == 0)
         return (write(1, "rrb", 3));
