@@ -37,7 +37,6 @@ t_list	**ft_parse_one(t_list **test, char *tab)
 		write(1, "Error\n", 6);
 		return (NULL);
 	}
-	//ft_free(head);
 	return (test);
 }
 

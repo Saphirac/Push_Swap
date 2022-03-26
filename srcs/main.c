@@ -22,7 +22,7 @@ static t_list	**ft_parse(t_list **tosort, int ac, char **av)
 	else if (ac > 2)
 	{
 		argv = malloc(sizeof(char *) * ac);
-		i = -1;
+		i = 0;
 		while (av[++i])
 			argv[i - 1] = ft_strdup(av[i]);
 		argv[i - 1] = 0;
@@ -38,14 +38,14 @@ static t_list	**ft_parse(t_list **tosort, int ac, char **av)
 
 int	main(int ac, char **av)
 {
-	t_list	**tosort = NULL;
+	t_list	*tosort;
 	t_list	*head;
 	
-	tosort = malloc(sizeof(t_list *));
-	tosort = ft_parse(tosort, ac, av);
+	tosort = NULL;
+	ft_parse(&tosort, ac, av);
 	if (!tosort)
 		return (1);
-	head = *tosort;
+	head = tosort;
 	if (ft_check_sorted(head) == FALSE || ft_lstsize(head) == 1)
 		return (1);
 	while (head)
