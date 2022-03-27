@@ -16,7 +16,6 @@
 t_list	**ft_parse_one(t_list **test, char *tab)
 {
 	char	**split;
-	t_list	*head;
 	int	j;
 
 	split = ft_split(tab, ' ');
@@ -30,10 +29,10 @@ t_list	**ft_parse_one(t_list **test, char *tab)
 			}
 		ft_lstadd_back(test, ft_lstnew(ft_atoi(split[j]), j));
 	}
-	free(split);
-	head = *test;
-	if (ft_check_double(head) == 1)
+	ft_free(split);
+	if (ft_check_double((*test)) == 1)
 	{
+		ft_lstclear(test);
 		write(1, "Error\n", 6);
 		return (NULL);
 	}
@@ -42,7 +41,6 @@ t_list	**ft_parse_one(t_list **test, char *tab)
 
 t_list	**ft_parse_two(t_list **test, char **tab)
 {
-	t_list	*head;
 	int	j;
 
 	j = -1;
@@ -55,9 +53,9 @@ t_list	**ft_parse_two(t_list **test, char **tab)
 		}
 		ft_lstadd_back(test, ft_lstnew(ft_atoi(tab[j]), j));
 	}
-	head = *test;
-	if (ft_check_double(head) == 1)
+	if (ft_check_double((*test)) == 1)
 	{
+		ft_lstclear(test);
 		write(1, "Error\n", 6);
 		return (NULL);
 	}

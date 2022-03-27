@@ -12,41 +12,45 @@
 
 #include "push_swap.h"
 
-int ft_ra(t_list *la, int c)
+int ft_ra(int *la, int size, int c)
 {
+    int i;
     int swap;
 
-    while (la && la->next)
+    i = 0;
+    while (i < size)
     {
-        swap = la->value;
-        la->value = la->next->value;
-        la->next->value = swap;
-        la = la->next;
+        swap = la[i];
+        la[i] = la[i + 1];
+        la[i + 1] = swap;
+        i++;
     }
     if (c == 0)
         return (write(1, "ra", 2));
     return (1);
 }
 
-int ft_rb(t_list *lb, int c)
+int ft_rb(int *lb, int size, int c)
 {
+    int i;
     int swap;
 
-    while (lb && lb->next)
+    i = 0;
+    while (i < size)
     {
-        swap = lb->value;
-        lb->value = lb->next->value;
-        lb->next->value = swap;
-        lb = lb->next;
+        swap = lb[i];
+        lb[i] = lb[i + 1];
+        lb[i + 1] = swap;
+        i++;
     }
     if (c == 0)
         return (write(1, "rb", 2));
     return (1);
 }
 
-int ft_rr(t_list *la, t_list *lb)
+int ft_rr(int *la, int *lb, int size)
 {
-    ft_ra(la, 1);
-    ft_rb(lb, 1);
+    ft_ra(la, size, 1);
+    ft_rb(lb, size, 1);
     return (write(1, "rr", 2));
 }

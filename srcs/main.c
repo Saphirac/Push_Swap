@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/19 01:24:30 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/27 20:23:13 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ static t_list	**ft_parse(t_list **tosort, int ac, char **av)
 		argv = malloc(sizeof(char *) * ac);
 		i = 0;
 		while (av[++i])
-			argv[i - 1] = ft_strdup(av[i]);
+			argv[i - 1] = ft_strndup(av[i], 0);
 		argv[i - 1] = 0;
 		tosort = ft_parse_two(tosort, argv);
+		ft_free(argv);
 	}
 	else
 	{
@@ -36,22 +37,43 @@ static t_list	**ft_parse(t_list **tosort, int ac, char **av)
 	return (tosort);
 }
 
+int	*ft_fill_tab(t_list *temp)
+{
+	int	*tosort;
+	int	i;
+
+	tosort = malloc(sizeof(int) * (ft_lstsize(temp) + 1));
+	i = 0;
+	while (temp)
+	{
+		tosort[i] = temp->value;
+		temp = temp->next;
+		i++;
+	}
+	return (tosort);
+}
+
 int	main(int ac, char **av)
 {
-	t_list	*tosort;
-	t_list	*head;
+	t_list	*temp;
+	int	*tosort;
+	int	i;
 	
-	tosort = NULL;
-	ft_parse(&tosort, ac, av);
-	if (!tosort)
+	temp = NULL;
+	i = 0;
+	ft_parse(&temp, ac, av);
+	if (!temp)
 		return (1);
-	head = tosort;
-	if (ft_check_sorted(head) == FALSE || ft_lstsize(head) == 1)
+	if (ft_check_sorted(temp) == FALSE || ft_lstsize(temp) == 1)
 		return (1);
-	while (head)
+	tosort = ft_fill_tab(temp);
+	ft_sa(tosort, 0);
+	printf("\n");
+	while (i < ft_lstsize(temp))
 	{
-		printf("%d ", head->value);
-		head = head->next;
+		printf("%d ", tosort[i]);
+		i++;
 	}
+	ft_lstclear(&temp);
 	return (0);
 }

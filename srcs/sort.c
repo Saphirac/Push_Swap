@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 02:27:56 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/26 23:39:33 by mcourtoi         ###   ########.fr       */
+/*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
+/*   Updated: 2022/03/27 18:35:49 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_list **lst)
+void    ft_sort(t_list **tosort, int size)
 {
-	t_list	*temp;
+    t_list  *b;
+    int n;
 
-	while (*lst)
-	{
-		temp = (*lst)->next;
-		ft_lstdelone(*lst);
-		(*lst) = temp;
-	}
+    n = ft_lstsize(*tosort);
+    if (n == 2)
+        ft_sa(tosort, 0);
+    else if (n == 3)
+        ft_sort_three(tosort);
 }

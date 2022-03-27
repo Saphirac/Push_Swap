@@ -12,55 +12,39 @@
 
 #include "push_swap.h"
 
-int ft_rra(t_list **la, int c)
+int ft_rra(int *la, int size, int c)
 {
-    t_list  *tmp;
+    int swap;
 
-    if (la)
+    while (size-- > 0)
     {
-        tmp = ft_pop_back(la);
-        ft_lstadd_front(la, ft_lstnew(tmp->value, tmp->index));
+        swap = la[size];
+        la[size] = la[size - 1];
+        la[size - 1] = swap;
     }
     if (c == 0)
         return (write(1, "rra", 3));
     return (1);
 }
 
-int ft_rrb(t_list **lb, int c)
+int ft_rrb(int *lb, int size, int c)
 {
-    t_list  *tmp;
+    int  swap;
 
-    if (lb)
+    while (size-- > 0)
     {
-        tmp = ft_pop_back(lb);
-        ft_lstadd_front(lb, ft_lstnew(tmp->value, tmp->index));
+        swap = lb[size];
+        lb[size] = lb[size - 1];
+        lb[size - 1] = swap;
     }
     if (c == 0)
         return (write(1, "rrb", 3));
     return (1);
 }
 
-int ft_rrr(t_list **la, t_list **lb)
+int ft_rrr(int *la, int *lb, int size)
 {
-    ft_rra(la, 1);
-    ft_rrb(lb, 1);
+    ft_rra(la, size, 1);
+    ft_rrb(lb, size, 1);
     return (write(1, "rrr", 3));
-}
-
-t_list  *ft_pop_back(t_list **li)
-{
-    t_list  *tmp;
-    t_list  *ret;
-
-    ret = NULL;
-    if(li)
-    {
-        tmp = *li;
-        while (tmp && tmp->next->next)
-            tmp = tmp->next;
-        ret = ft_lstnew(tmp->next->value, tmp->next->index);
-        ft_lstdelone(tmp->next);
-        tmp->next = NULL;
-    }
-    return (ret);
 }
