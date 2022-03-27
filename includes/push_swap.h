@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/27 20:21:43 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:22:21 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@
 # include <stdarg.h>
 # include <libft.h>
 
-/*---Parse---*/
+/*-----Parse-----*/
 t_list	**ft_parse_two(t_list **test, char **tab);
 t_list	**ft_parse_one(t_list **test, char *tab);
 
-/*---Checks---*/
+/*-----Checks-----*/
 int	ft_check_double(t_list *li);
 int ft_check_sorted(t_list *li);
 int ft_check_digits(char *str);
 
-/*---Other---*/
+/*-----Other-----*/
 char    *ft_strndup(char *src, int n);
 int	ft_putstr(char *s);
 int ft_numlen(int *n);
@@ -60,6 +60,9 @@ int ft_rrb(int *lb, int size, int c);
 
 t_list  *ft_pop_back(t_list **li);
 
+/*-----Sort-----*/
+void    ft_sort(int *tosort, int size);
+void    ft_sort_three(int *tosort, int size);
 
 
 

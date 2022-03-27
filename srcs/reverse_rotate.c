@@ -16,7 +16,7 @@ int ft_rra(int *la, int size, int c)
 {
     int swap;
 
-    while (size-- > 0)
+    while (size-- > 1)
     {
         swap = la[size];
         la[size] = la[size - 1];
@@ -31,7 +31,7 @@ int ft_rrb(int *lb, int size, int c)
 {
     int  swap;
 
-    while (size-- > 0)
+    while (size-- > 1)
     {
         swap = lb[size];
         lb[size] = lb[size - 1];

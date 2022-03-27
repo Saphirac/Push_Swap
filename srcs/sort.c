@@ -6,20 +6,19 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/27 18:35:49 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:22:31 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ft_sort(t_list **tosort, int size)
+void    ft_sort(int *tosort, int size)
 {
-    t_list  *b;
-    int n;
+    //int  *b;
 
-    n = ft_lstsize(*tosort);
-    if (n == 2)
+    //b = malloc(sizeof(int) * size + 1);
+    if (size == 2)
         ft_sa(tosort, 0);
-    else if (n == 3)
-        ft_sort_three(tosort);
+    else if (size == 3)
+        ft_sort_three(tosort, size);
 }

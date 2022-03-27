@@ -3,48 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/19 01:00:20 by marvin           ###   ########.fr       */
+/*   Updated: 2022/03/27 18:51:40 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int    ft_pa(t_list **la, t_list **lb)
+int    ft_pa(int *la, int *lb)
 {
-    t_list  *head;
-
     if (la)
-    {
         if (lb)
-        {
-            head = *lb;
-            ft_lstadd_front(la, ft_lstnew(head->value, head->index));
-            ft_pop_front(lb);
-        }
-    }
+            return (1);
     return (write(1, "pa", 2));
 }
 
-int    ft_pb(t_list **lb, t_list **la)
+int    ft_pb(int *lb, int *la)
 {
-    t_list  *head;
-
     if (lb)
-    {
         if (la)
-        {
-            head = *la;
-            ft_lstadd_front(lb, ft_lstnew(head->value, head->index));
-            ft_pop_front(la);
-        }
-    }
+            return (1);
     return (write(1, "pb", 2));
 }
 
-void  ft_pop_front(t_list **li)
+/*void  ft_pop_front(t_list **li)
 {
     t_list  *tmp;
 
@@ -54,4 +38,4 @@ void  ft_pop_front(t_list **li)
         ft_lstdelone(*li);
         *li = tmp;
     }
-}
+}*/

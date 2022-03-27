@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/27 20:23:13 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/03/27 19:19:15 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 	if (ft_check_sorted(temp) == FALSE || ft_lstsize(temp) == 1)
 		return (1);
 	tosort = ft_fill_tab(temp);
-	ft_sa(tosort, 0);
+	ft_sort(tosort, ft_lstsize(temp));
 	printf("\n");
 	while (i < ft_lstsize(temp))
 	{
