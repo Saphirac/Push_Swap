@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/02 04:53:45 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/02 21:50:29 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ int		ft_rra(int *la, int size, int c);
 int		ft_rrb(int *lb, int size, int c);
 
 /*-----Sort-----*/
-void	ft_sort(int *tosort, int size);
 void	ft_sort_three(int *tosort, int size);
+int		*ft_fill_k(int *tosort, int size);
+void	ft_sort(int *tosort, int size);
+int		*ft_lis(int *tosort, int size);
+int		ft_size_lis(int *k, int size);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_small.c                                       :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/02 04:41:15 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/02 22:01:10 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ void	ft_sort_three(int *tosort, int size)
 	}
 	else if (tosort [0] < tosort[1] && tosort[0] > tosort[2])
 		ft_rra(tosort, size, 0);
+}
+
+void	ft_smart_rotate(int *tosort, int size, int i)
+{
+	if ()	
 }
