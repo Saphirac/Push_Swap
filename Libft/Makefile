@@ -6,7 +6,7 @@
 #    By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 16:23:10 by mcourtoi          #+#    #+#              #
-#    Updated: 2022/03/27 18:42:46 by mcourtoi         ###   ########.fr        #
+#    Updated: 2022/04/02 04:55:21 by mcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,18 +21,9 @@ SRCS = ft_atoi.c \
        ft_strlcpy.c ft_strlen.c \
        ft_strncmp.c \
 
-BONUS = ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-
 OBJS = ${SRCS:.c=.o}
 
 INC = ../includes
-
-BONUSOBJS = ${BONUS:.c=.o}
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -41,14 +32,11 @@ FLAGS = -Wall -Wextra -Werror
 
 all:	 ${NAME}
 
-${NAME}:    ${OBJS} ${BONUSOBJS}
-	ar rcs ${NAME} ${OBJS} ${BONUSOBJS}
-
-bonus: ${OBJS} ${BONUSOBJS}
-	ar rcs $(NAME) ${OBJS} ${BONUSOBJS}
+${NAME}:    ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 clean:
-	rm -f ${OBJS} ${BONUSOBJS}
+	rm -f ${OBJS}
 
 fclean: clean
 	rm -f ${NAME}

@@ -12,55 +12,73 @@
 
 #include "push_swap.h"
 
-int ft_check_sorted(t_list *li)
+int	ft_check_sorted(int *i, int size)
 {
-    int c;
-    
-    while (li && li->next)
-    {
-        c = li->value;
-        li = li->next;
-        if (c > li->value)
-            return (1);
-    }
-    return (0);
-}
+	int	j;
 
-int ft_check_digits(char *str)
-{
-    int i;
-
-    i = 0;
-    while (str[i])
-    {
-        if (ft_isdigit(str[i]) == FALSE && str[i] != '-')
-            return (1);
-        i++;
-    }
-    if (str[0] == '-')
-        i--;
-    if (!ft_strncmp(str, "-2147483649", 11)
-            || !ft_strncmp(str, "2147483648", 10))
-        return (1);
-    if (i >= 11)
-        return (1); 
-    return (0);
-}
-
-int	ft_check_double(t_list *li)
-{
-	t_list	*temp;
-	
-	while (li)
+	j = 0;
+	while (j < size - 1)
 	{
-        temp = li->next;
-		while (temp)
+		if (i[j] > i[j + 1])
+			return (1);
+		j++;
+	}
+	return (0);
+}
+
+int	ft_check_digits(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]) == FALSE && str[i] != '-')
+			return (1);
+		i++;
+	}
+	if (str[0] == '-')
+		i--;
+	if (!ft_strncmp(str, "-2147483649", 11)
+		|| !ft_strncmp(str, "2147483648", 10))
+		return (1);
+	if (i >= 11)
+		return (1);
+	return (0);
+}
+
+int	ft_check_double(int *tab, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size - 2)
+	{
+		j = i + 1;
+		while (j < size - 1)
 		{
-			if (li->value == temp->value)
+			if (tab[i] == tab[j])
 				return (1);
-			temp = temp->next;
+			j++;
 		}
-		li = li->next;
+		i++;
+	}
+	return (0);
+}
+
+int	ft_check(int *tosort, int size)
+{
+	if (ft_check_double(tosort, size) == 1)
+	{
+		free(tosort);
+		write(1, "Error\n", 6);
+		return (1);
+	}
+	if (ft_check_sorted(tosort, size) == FALSE || size == 1)
+	{
+		free(tosort);
+		return (1);
 	}
 	return (0);
 }

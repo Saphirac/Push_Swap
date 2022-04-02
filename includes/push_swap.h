@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/27 19:22:21 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/02 04:53:45 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,51 +21,43 @@
 # include <libft.h>
 
 /*-----Parse-----*/
-t_list	**ft_parse_two(t_list **test, char **tab);
-t_list	**ft_parse_one(t_list **test, char *tab);
+int		*ft_parse_two(char **tab, int ac);
+int		*ft_parse_one(char *tab);
 
 /*-----Checks-----*/
-int	ft_check_double(t_list *li);
-int ft_check_sorted(t_list *li);
-int ft_check_digits(char *str);
+int		ft_check_double(int *tab, int size);
+int		ft_check_sorted(int *i, int size);
+int		ft_check_digits(char *str);
+int		ft_check(int *tosort, int size);
 
 /*-----Other-----*/
-char    *ft_strndup(char *src, int n);
-int	ft_putstr(char *s);
-int ft_numlen(int *n);
+int		ft_strrlen(char **str);
+int		ft_putstr(char *s);
 
-void    ft_free(char **str);
+void	ft_free(char **str);
 
 /*-----Moves-----*/
 
 /*---Swap---*/
-int    ft_ss(int *la, int *lb);
-int    ft_sa(int *la, int c);
-int    ft_sb(int *lb, int c);
+int		ft_ss(int *la, int *lb);
+int		ft_sa(int *la, int c);
+int		ft_sb(int *lb, int c);
 /*---Push---*/
-int    ft_pa(int *la, int *lb);
-int    ft_pb(int *lb, int *la);
-
-void    ft_pop_front(t_list **li);
+int		ft_pa(int *la, int *lb, int *sizea, int *sizeb);
+int		ft_pb(int *lb, int *la, int *sizeb, int *sizea);
 
 /*---Rotate---*/
-int ft_rr(int *la, int *lb, int size);
-int ft_ra(int *la, int size, int c);
-int ft_rb(int *lb, int size, int c);
+int		ft_rr(int *la, int *lb, int size);
+int		ft_ra(int *la, int size, int c);
+int		ft_rb(int *lb, int size, int c);
 
 /*---Reverse_Rotate---*/
-int ft_rrr(int *la, int *lb, int size);
-int ft_rra(int *la, int size, int c);
-int ft_rrb(int *lb, int size, int c);
-
-t_list  *ft_pop_back(t_list **li);
+int		ft_rrr(int *la, int *lb, int size);
+int		ft_rra(int *la, int size, int c);
+int		ft_rrb(int *lb, int size, int c);
 
 /*-----Sort-----*/
-void    ft_sort(int *tosort, int size);
-void    ft_sort_three(int *tosort, int size);
-
-
-
-
+void	ft_sort(int *tosort, int size);
+void	ft_sort_three(int *tosort, int size);
 
 #endif

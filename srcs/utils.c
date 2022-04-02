@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:24:07 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/03/26 22:45:24 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/02 04:35:22 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,7 @@
 
 int	ft_putstr(char *s)
 {
-	return(write(1, s, ft_strlen(s)));
-}
-
-int	ft_numlen(int *n)
-{
-	int	i;
-
-	i = 0;
-	if (n[i] == 0)
-		i++;
-	while (n[i])
-		i++;
-	return (i);
+	return (write(1, s, ft_strlen(s)));
 }
 
 void	ft_free(char **str)
@@ -39,29 +27,15 @@ void	ft_free(char **str)
 		free(str[i]);
 		i++;
 	}
+	free(str);
 }
 
-char	*ft_strndup(char *src, int n)
+int	ft_strrlen(char **str)
 {
-	char	*dest;
-	int	size;
 	int	i;
 
-	if (!src)
-		return (NULL);
-	size = ft_strlen(src);
-	if (n > size)
-		return (NULL);
-	dest = malloc(sizeof(char) * (size - n) + 1);
-	if (!dest)
-		return (NULL);
 	i = 0;
-	while (src[n])
-	{
-		dest[i] = src[n];
+	while (str[i])
 		i++;
-		n++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	return (i);
 }
