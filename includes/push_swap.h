@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/05 16:14:45 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:58:34 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,23 @@ int		ft_rra(int *la, int size, int c);
 int		ft_rrb(int *lb, int size, int c);
 
 /*-----Sort-----*/
+
+/*---B---*/
 int		*ft_push_lis(int *tosort, int *lis, int size, int sizelis);
-int		*ft_val_moves(int *tosort, int *b, int size, int sizeb);
-int		ft_pos_small_big(int *tosort, int size, int n);
 int		ft_is_lis(int *lis, int sizelis, int n);
-int		ft_pos_a(int *tosort, int size, int n);
+
+/*---Lis---*/
 int		ft_size_lis(int *tosort, int size);
 int		*ft_fill_k(int *tosort, int size);
 int		*ft_lis(int *tosort, int size);
 
+
+/*---ValMoves---*/
+int		*ft_val_moves(int *tosort, int *b, int size, int sizeb);
+int		ft_pos_small_big(int *tosort, int size, int n);
+int		ft_pos_a(int *tosort, int size, int n);
+
+/*---Sorting---*/
 void	ft_smart_rotate(int *tosort, int size, int i);
 void	ft_sort_three(int *tosort, int size);
 void	ft_sort(int *tosort, int size);

@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/05 16:43:34 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/05 17:44:25 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	ft_place_b(int *tosort, int *b, int size, int sizeb)
 {
 	int	*temp;
 	int	i;
+	int	j;
 	int	s;
 
 	i = 0;
@@ -93,7 +94,9 @@ void	ft_place_b(int *tosort, int *b, int size, int sizeb)
 	{
 		temp = ft_val_moves(tosort, b, size, sizeb);
 		s = ft_to_move_first(temp, size);
-		while (b[i] != temp[s])
+		j = 0;
+		if (s > sizeb / 2 && ft_pos_a(tosort, size, b[s]) > size / 2)
+			while (j++ < )
 		
 		
 		
@@ -117,4 +120,5 @@ void	ft_sort(int *tosort, int size)
 		ft_sort_three(tosort, size);
 	else
 		
+	free(b);
 }
