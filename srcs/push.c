@@ -6,13 +6,13 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/02 04:44:44 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/04 00:58:29 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_pa(int *la, int *lb, int *sizea, int *sizeb)
+int	ft_pb(int *la, int *lb, int *sizea, int *sizeb)
 {
 	if (la)
 	{
@@ -27,7 +27,7 @@ int	ft_pa(int *la, int *lb, int *sizea, int *sizeb)
 	return (1);
 }
 
-int	ft_pb(int *lb, int *la, int *sizeb, int *sizea)
+int	ft_pa(int *lb, int *la, int *sizeb, int *sizea)
 {
 	if (lb)
 	{

@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/02 21:52:15 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/04 01:19:33 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,14 @@ int	main(int ac, char **av)
 		printf("%d ", tosort[i]);
 		i++;
 	}
-	printf("\n LIS :");
+	printf("\n LIS : ");
 	i = 0;
-	while (i <= ft_size_lis(ft_fill_k(tosort, size), size))
+	while (i <= ft_biggest(ft_fill_k(tosort, size), size) - 1)
 	{
 		printf("%d ", lis[i]);
 		i++;
 	}
+	printf("\n smallest : %d\n", ft_smallest(tosort, size));
 	free(tosort);
 	return (0);
 }

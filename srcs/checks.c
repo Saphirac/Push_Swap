@@ -75,7 +75,7 @@ int	ft_check(int *tosort, int size)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (ft_check_sorted(tosort, size) == FALSE || size == 1)
+	if (ft_check_sorted(tosort, size) == TRUE || size == 1)
 	{
 		free(tosort);
 		return (1);

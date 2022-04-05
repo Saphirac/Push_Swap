@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/02 21:52:49 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:43:34 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,15 @@ int	*ft_fill_k(int *tosort, int size)
 	return (k);
 }
 
-int	ft_size_lis(int *k, int size)
+int	ft_size_lis(int *tosort, int size)
 {
-	int	i;
-	int	max;
+	int	*k;
+	int	n;
 
-	i = 0;
-	max = 1;
-	while (i < size - 2)
-	{
-		if (k[i + 1] > k[i])
-			max = k[i + 1];
-		i++;
-	}
-	return (max);
+	k = ft_fill_k(tosort, size);
+	n = ft_biggest(k, size);
+	free(k);
+	return (n);
 }
 
 int	*ft_lis(int *tosort, int size)
@@ -59,7 +54,7 @@ int	*ft_lis(int *tosort, int size)
 	int	j;
 
 	k = ft_fill_k(tosort, size);
-	sizek = ft_size_lis(k, size);
+	sizek = ft_biggest(k, size);
 	lis = malloc(sizeof(int) * sizek);
 	i = -1;
 	j = 1;
@@ -75,15 +70,51 @@ int	*ft_lis(int *tosort, int size)
 	return (lis);
 }
 
+int	ft_to_move_first(int *temp, int size)
+{
+	int	i;
+	int	s;
+
+	i = 0;
+	s = ft_smallest(temp, size);
+	while (temp[i] != s)
+		i++;
+	return (i);
+}
+
+void	ft_place_b(int *tosort, int *b, int size, int sizeb)
+{
+	int	*temp;
+	int	i;
+	int	s;
+
+	i = 0;
+	while (i < sizeb - 1)
+	{
+		temp = ft_val_moves(tosort, b, size, sizeb);
+		s = ft_to_move_first(temp, size);
+		while (b[i] != temp[s])
+		
+		
+		
+	}
+	
+}
+
 void	ft_sort(int *tosort, int size)
 {
-	/*int  *b;
+	int  *b;
 	int sizeb;
+	int	*lis;
 
-	b = malloc(sizeof(int) * size);
-	sizeb = 0;*/
+	lis = ft_lis(tosort, size);
+	b = ft_push_lis(tosort, lis, size, ft_size_lis(tosort, size));
+	free(lis);
+	sizeb = size - ft_size_lis(tosort, size) + 1;
 	if (size == 2)
 		ft_sa(tosort, 0);
 	else if (size == 3)
 		ft_sort_three(tosort, size);
+	else
+		
 }
