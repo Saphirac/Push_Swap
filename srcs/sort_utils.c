@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/05 03:39:35 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 00:38:39 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	*ft_push_lis(int *tosort, int *lis, int size, int sizelis)
 	int	i;
 	int	j;
 	
-	sizeb = size - sizelis + 1;
+	sizeb = size - sizelis;
 	b = malloc(sizeof(int) * sizeb);
 	i = 0;
 	while (i < size - 1)
@@ -102,7 +102,7 @@ int	ft_pos_small_big(int *tosort, int size, int n)
 	int i;
 
 	i = 0;
-	pos = 0;
+	pos = n;
 	if (pos < ft_smallest(tosort, size))
 	{
 		while (tosort[i] != ft_smallest(tosort, size))
@@ -118,7 +118,7 @@ int	ft_pos_small_big(int *tosort, int size, int n)
 		pos = i + 1;
 	}
 	if (pos > size / 2)
-		return (-(size - pos + 1))
+		return (-(size - pos + 1));
 	return (pos);
 }
 
@@ -137,7 +137,7 @@ int	*ft_val_moves(int *tosort, int *b, int size, int sizeb)
 			temp[i] = j + i;
 		if (j < 0 && i <= sizeb / 2)
 			temp[i] = -j + i;
-		if (j < 0 i > sizeb / 2)
+		if (j < 0 && i > sizeb / 2)
 			temp[i] = -j + (sizeb - i + 1);
 		i++;
 	}
@@ -146,7 +146,7 @@ int	*ft_val_moves(int *tosort, int *b, int size, int sizeb)
 
 void	ft_smart_rotate(int	*tosort, int size, int i)
 {
-	if (i >= size / 2)
+	if (i <= size / 2)
 		ft_ra(tosort, size, 0);
 	else
 		ft_rra(tosort, size, 0);

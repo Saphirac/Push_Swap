@@ -26,7 +26,7 @@ int	ft_ra(int *la, int size, int c)
 		i++;
 	}
 	if (c == 0)
-		return (write(1, "ra", 2));
+		return (write(1, "ra\n", 3));
 	return (1);
 }
 
@@ -44,13 +44,13 @@ int	ft_rb(int *lb, int size, int c)
 		i++;
 	}
 	if (c == 0)
-		return (write(1, "rb", 2));
+		return (write(1, "rb\n", 3));
 	return (1);
 }
 
-int	ft_rr(int *la, int *lb, int size)
+int	ft_rr(int *la, int *lb, int size, int sizeb)
 {
 	ft_ra(la, size, 1);
-	ft_rb(lb, size, 1);
-	return (write(1, "rr", 2));
+	ft_rb(lb, sizeb, 1);
+	return (write(1, "rr\n", 3));
 }

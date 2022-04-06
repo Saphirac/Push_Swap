@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/04 01:19:33 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 00:09:59 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ static int	ft_size(int ac, char **av)
 int	main(int ac, char **av)
 {
 	int	*tosort;
-	int	*lis;
 	int	size;
 	int	i;
 
@@ -55,26 +54,16 @@ int	main(int ac, char **av)
 	if (!tosort)
 		return (1);
 	size = ft_size(ac, av);
-	printf("size : %d\n", size);
 	if (ft_check(tosort, size) == 1)
 		return (1);
 	ft_sort(tosort, size);
-	lis = ft_lis(tosort, size);
 	printf("\n");
 	i = 0;
-	while (i < size)
+	while (i < size - 1)
 	{
 		printf("%d ", tosort[i]);
 		i++;
 	}
-	printf("\n LIS : ");
-	i = 0;
-	while (i <= ft_biggest(ft_fill_k(tosort, size), size) - 1)
-	{
-		printf("%d ", lis[i]);
-		i++;
-	}
-	printf("\n smallest : %d\n", ft_smallest(tosort, size));
 	free(tosort);
 	return (0);
 }

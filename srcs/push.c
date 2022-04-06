@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/04 00:58:29 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 00:35:34 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_pb(int *la, int *lb, int *sizea, int *sizeb)
 		ft_ra(la, *sizea, 1);
 		*sizea = *sizea - 1;
 		la[*sizea] = 0;
-		return (write(1, "pa", 2));
+		return (write(1, "pb\n", 3));
 	}
 	return (1);
 }
@@ -37,7 +37,7 @@ int	ft_pa(int *lb, int *la, int *sizeb, int *sizea)
 		ft_rb(lb, *sizeb, 1);
 		*sizeb = *sizeb - 1;
 		lb[*sizeb] = 0;
-		return (write(1, "pb", 2));
+		return (write(1, "pa\n", 3));
 	}
 	return (1);
 }

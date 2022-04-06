@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/05 16:58:34 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/05 23:11:26 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ int		ft_pb(int *la, int *lb, int *sizea, int *sizeb);
 int		ft_pa(int *lb, int *la, int *sizeb, int *sizea);
 
 /*---Rotate---*/
-int		ft_rr(int *la, int *lb, int size);
+int		ft_rr(int *la, int *lb, int size, int sizeb);
 int		ft_ra(int *la, int size, int c);
 int		ft_rb(int *lb, int size, int c);
 
 /*---Reverse_Rotate---*/
-int		ft_rrr(int *la, int *lb, int size);
+int		ft_rrr(int *la, int *lb, int size, int sizeb);
 int		ft_rra(int *la, int size, int c);
-int		ft_rrb(int *lb, int size, int c);
+int		ft_rrb(int *lb, int sizeb, int c);
 
 /*-----Sort-----*/
 
