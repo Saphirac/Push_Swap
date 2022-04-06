@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:24:07 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/04 01:10:52 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:26:22 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,19 @@ int	ft_strrlen(char **str)
 	return (i);
 }
 
-int	ft_abs(int i)
+int	*ft_calloc(int size)
 {
-	if (i >= 0)
-		return (i);
-	else
-		return (-i);
+	int	*ret;
+	int	i;
+	
+	ret = malloc(sizeof(int) * size);
+	i = 0;
+	while (i < size - 1)
+	{
+		ret[i] = 0;
+		i++;
+	}
+	return (ret);
 }
 
 int	ft_smallest(int *tab, int size)

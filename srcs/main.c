@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 00:09:59 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:19:31 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,15 @@ int	main(int ac, char **av)
 	size = ft_size(ac, av);
 	if (ft_check(tosort, size) == 1)
 		return (1);
-	ft_sort(tosort, size);
+	ft_sort(tosort, &size);
 	printf("\n");
 	i = 0;
-	while (i < size - 1)
+	while (i < size)
 	{
 		printf("%d ", tosort[i]);
 		i++;
 	}
+	printf("test : %d\n", size);
 	free(tosort);
 	return (0);
 }

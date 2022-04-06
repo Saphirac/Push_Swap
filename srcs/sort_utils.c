@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 00:38:39 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:45:17 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_sort_three(int *tosort, int size)
 	else if (tosort[0] > tosort[1] && tosort[1] > tosort[2])
 	{
 		ft_sa(tosort, 0);
-		write(1, "\n", 1);
 		ft_rra(tosort, size, 0);
 	}
 	else if (tosort[0] > tosort[1] && tosort[0] > tosort[2])
@@ -27,7 +26,6 @@ void	ft_sort_three(int *tosort, int size)
 	else if (tosort[0] < tosort[1] && tosort[0] < tosort[2])
 	{
 		ft_sa(tosort, 0);
-		write(1, "\n", 1);
 		ft_ra(tosort, size, 0);
 	}
 	else if (tosort [0] < tosort[1] && tosort[0] > tosort[2])
@@ -48,24 +46,26 @@ int	ft_is_lis(int *lis, int sizelis, int n)
 	return (FALSE);
 }
 
-int	*ft_push_lis(int *tosort, int *lis, int size, int sizelis)
+int	*ft_push_lis(int *tosort, int *lis, int *size, int sizelis)
 {
 	int	*b;
 	int	sizeb;
 	int	i;
 	int	j;
 	
-	sizeb = size - sizelis;
-	b = malloc(sizeof(int) * sizeb);
+	sizeb = *size - sizelis + 1;
+	b = ft_calloc(sizeb);
 	i = 0;
-	while (i < size - 1)
+	sizeb = 1;
+	while (i < *size - 1)
 	{
 		j = tosort[i];
 		if (ft_is_lis(lis, sizelis, j) == FALSE)
 		{
 			while (tosort[0] != j)
-				ft_smart_rotate(tosort, size, i);
-			ft_pb(tosort, b, &size, &sizeb);
+				ft_smart_rotate(tosort, *size, i);
+			printf("sizeb : %d\n", sizeb);
+			ft_pb(tosort, b, size, &sizeb);
 		}
 		i++;
 	}

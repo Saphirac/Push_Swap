@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/05 23:11:26 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/06 15:26:48 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_smallest(int *tab, int size);
 int		ft_biggest(int *tab, int size);
 
 int		ft_strrlen(char **str);
-int		ft_abs(int i);
+int		*ft_calloc(int size);
 
 void	ft_free(char **str);
 
@@ -62,7 +62,7 @@ int		ft_rrb(int *lb, int sizeb, int c);
 /*-----Sort-----*/
 
 /*---B---*/
-int		*ft_push_lis(int *tosort, int *lis, int size, int sizelis);
+int		*ft_push_lis(int *tosort, int *lis, int *size, int sizelis);
 int		ft_is_lis(int *lis, int sizelis, int n);
 
 /*---Lis---*/
@@ -79,7 +79,7 @@ int		ft_pos_a(int *tosort, int size, int n);
 /*---Sorting---*/
 void	ft_smart_rotate(int *tosort, int size, int i);
 void	ft_sort_three(int *tosort, int size);
-void	ft_sort(int *tosort, int size);
+void	ft_sort(int *tosort, int *size);
 
 
 
