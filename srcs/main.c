@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 15:19:31 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/08 02:30:28 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,31 @@ static int	ft_size(int ac, char **av)
 	return (size);
 }
 
+void	ft_test(t_stack a, t_stack b)
+{
+	ft_pb(a.arr, b.arr, a.size, b.size);
+}
+
 int	main(int ac, char **av)
 {
-	int	*tosort;
-	int	size;
+	t_stack	tosort;
 	int	i;
 
-	tosort = ft_parse(ac, av);
-	if (!tosort)
+	tosort.arr = ft_parse(ac, av);
+	tosort.size = ft_calloc(1);
+	if (!tosort.arr)
 		return (1);
-	size = ft_size(ac, av);
-	if (ft_check(tosort, size) == 1)
+	*tosort.size = ft_size(ac, av);
+	if (ft_check(tosort.arr, *tosort.size) == 1)
 		return (1);
-	ft_sort(tosort, &size);
-	printf("\n");
+	ft_sort(tosort);
+	printf("test : %d\n", *tosort.size);
 	i = 0;
-	while (i < size)
+	while (i < *tosort.size)
 	{
-		printf("%d ", tosort[i]);
+		printf("%d ", tosort.arr[i]);
 		i++;
 	}
-	printf("test : %d\n", size);
-	free(tosort);
+	free(tosort.arr);
 	return (0);
 }

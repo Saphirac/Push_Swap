@@ -6,46 +6,44 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 15:48:01 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/08 02:47:09 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	*ft_fill_k(int *tosort, int size)
+int	*ft_fill_k(int *a, int size)
 {
 	int	*k;
 	int	i;
 	int	j;
 
 	k = ft_calloc(size);
-	i = -1;
-	while (i++ < size - 1)
-		k[i] = 1;
-	i = 0;
-	while (i++ < size - 1)
+	i = 1;
+	while (i < size - 1)
 	{
 		j = -1;
-		while (j++ < i - 1)
-			if (tosort[i] > tosort[j])
+		while (++j < i - 1)
+			if (a[i] > a[j])
 				if (k[j] + 1 > k[i])
 					k[i] = k[j] + 1;
+		i++;
 	}
 	return (k);
 }
 
-int	ft_size_lis(int *tosort, int size)
+int	ft_size_lis(int *a, int size)
 {
 	int	*k;
 	int	n;
 
-	k = ft_fill_k(tosort, size);
+	k = ft_fill_k(a, size);
 	n = ft_biggest(k, size);
 	free(k);
 	return (n);
 }
 
-int	*ft_lis(int *tosort, int size)
+int	*ft_lis(int *a, int size)
 {
 	int	*lis;
 	int	*k;
@@ -53,16 +51,16 @@ int	*ft_lis(int *tosort, int size)
 	int	i;
 	int	j;
 
-	k = ft_fill_k(tosort, size);
+	k = ft_fill_k(a, size);
 	sizek = ft_biggest(k, size);
 	lis = ft_calloc(sizek);
 	i = -1;
 	j = 1;
-	while (i++ < size - 2)
+	while (++i < size - 1)
 	{
 		if (k[i] == j)
 		{
-			lis[j - 1] = tosort[i];
+			lis[j - 1] = a[i];
 			j++;
 		}
 	}
@@ -82,7 +80,7 @@ int	ft_to_move_first(int *temp, int size)
 	return (i);
 }
 
-void	ft_place_b(int *tosort, int *b, int size, int sizeb)
+void	ft_place_b(t_stack a, t_stack b)
 {
 	int	*temp;
 	int	i;
@@ -91,54 +89,50 @@ void	ft_place_b(int *tosort, int *b, int size, int sizeb)
 	int	n;
 
 	i = 0;
-	while (i < sizeb - 1)
+	while (i < *b.size - 1)
 	{
-		temp = ft_val_moves(tosort, b, size, sizeb);
-		s = ft_to_move_first(temp, size);
+		temp = ft_val_moves(a.arr, b.arr, *a.size, *b.size);
+		s = ft_to_move_first(temp, *a.size);
 		j = -1;
-		n = b[s];
-		if (s > sizeb / 2 && ft_pos_a(tosort, size, n) > size / 2)
+		n = b.arr[s];
+		if (s > *b.size / 2 && ft_pos_a(a.arr, *a.size, n) > *a.size / 2)
 		{
-			while (j++ < size - ft_pos_a(tosort, size, n) && j < sizeb - s)
-				ft_rrr(tosort, b, size, sizeb);
-			while (b[0] != n)
-				ft_rrb(b, sizeb, 0);
-			ft_pb(tosort, b, &size, &sizeb);
-			n = tosort[0];
-			while (ft_pos_a(tosort, size, n) > 0)
-				ft_rra(tosort, size, 0);
+			while (j++ < *a.size - ft_pos_a(a.arr, *a.size, n) && j < *b.size - s)
+				ft_rrr(a.arr, b.arr, *a.size, *b.size);
+			while (b.arr[0] != n)
+				ft_rrb(b.arr, *b.size, 0);
+			ft_pb(a.arr, b.arr, a.size, b.size);
+			n = a.arr[0];
+			while (ft_pos_a(a.arr, *a.size, n) > 0)
+				ft_rra(a.arr, *a.size, 0);
 		}
 	}
 }
 
-void	ft_test(int *size)
+void	ft_sort(t_stack a)
 {
-	*size = 7;
-}
-
-void	ft_sort(int *tosort, int *size)
-{
-	int  *b;
-	int sizeb;
+	t_stack b;
 	int	*lis;
 	int	i;
 
-	lis = ft_lis(tosort, *size);
-	b = ft_push_lis(tosort, lis, size, ft_size_lis(tosort, *size));
+	i = -1;
+	lis = ft_lis(a.arr, *a.size);
+	printf("test : %d\n", ft_size_lis(a.arr, *a.size));
+	b = ft_push_lis(a, lis, ft_size_lis(a.arr, *a.size));
 	i = 0;
-	sizeb = *size - ft_size_lis(tosort, *size) + 1;
-	if (*size == 2)
-		ft_sa(tosort, 0);
-	if (*size == 3)
-		ft_sort_three(tosort, *size);
+	if (*a.size == 2)
+		ft_sa(a.arr, 0);
+	if (*a.size == 3)
+		ft_sort_three(a.arr, *a.size);
 	else
 	{
 		printf("\n");
-		while (i < sizeb - 1)
+		while (i < b.size[0] - 1)
 		{
-			printf("%d ", b[i]);
+			printf("%d ", b.arr[i]);
 			i++;
 		}
 	}
-	free(b);
+	free(b.arr);
+	free(b.size);
 }

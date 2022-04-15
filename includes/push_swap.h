@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 15:26:48 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/07 14:32:36 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <libft.h>
+
+typedef struct s_stack
+{
+	int	*arr;
+	int	*size;
+}	t_stack;
 
 /*-----Parse-----*/
 int		*ft_parse_two(char **tab, int ac);
@@ -46,8 +52,8 @@ int		ft_ss(int *la, int *lb);
 int		ft_sa(int *la, int c);
 int		ft_sb(int *lb, int c);
 /*---Push---*/
-int		ft_pb(int *la, int *lb, int *sizea, int *sizeb);
-int		ft_pa(int *lb, int *la, int *sizeb, int *sizea);
+void		ft_pb(int *la, int *lb, int *sizea, int *sizeb);
+void		ft_pa(int *lb, int *la, int *sizeb, int *sizea);
 
 /*---Rotate---*/
 int		ft_rr(int *la, int *lb, int size, int sizeb);
@@ -62,7 +68,7 @@ int		ft_rrb(int *lb, int sizeb, int c);
 /*-----Sort-----*/
 
 /*---B---*/
-int		*ft_push_lis(int *tosort, int *lis, int *size, int sizelis);
+t_stack ft_push_lis(t_stack tosort, int *lis, int sizelis);
 int		ft_is_lis(int *lis, int sizelis, int n);
 
 /*---Lis---*/
@@ -78,8 +84,9 @@ int		ft_pos_a(int *tosort, int size, int n);
 
 /*---Sorting---*/
 void	ft_smart_rotate(int *tosort, int size, int i);
-void	ft_sort_three(int *tosort, int size);
-void	ft_sort(int *tosort, int *size);
+void	ft_sort(t_stack tosort);
+
+int		ft_sort_three(int *tosort, int size);
 
 
 
