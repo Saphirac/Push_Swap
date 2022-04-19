@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/07 14:32:36 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/17 15:50:10 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ int		ft_rrb(int *lb, int sizeb, int c);
 
 /*---B---*/
 t_stack ft_push_lis(t_stack tosort, int *lis, int sizelis);
+int		ft_check_lis(t_stack a, int *lis, int sizelis);
 int		ft_is_lis(int *lis, int sizelis, int n);
 
 /*---Lis---*/

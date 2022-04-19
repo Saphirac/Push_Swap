@@ -53,10 +53,10 @@ int	ft_check_double(int *tab, int size)
 	int	j;
 
 	i = 0;
-	while (i < size - 2)
+	while (i < size - 1)
 	{
 		j = i + 1;
-		while (j < size - 1)
+		while (j < size)
 		{
 			if (tab[i] == tab[j])
 				return (1);

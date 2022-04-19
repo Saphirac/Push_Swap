@@ -6,67 +6,11 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/08 02:47:09 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/18 02:52:21 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	*ft_fill_k(int *a, int size)
-{
-	int	*k;
-	int	i;
-	int	j;
-
-	k = ft_calloc(size);
-	i = 1;
-	while (i < size - 1)
-	{
-		j = -1;
-		while (++j < i - 1)
-			if (a[i] > a[j])
-				if (k[j] + 1 > k[i])
-					k[i] = k[j] + 1;
-		i++;
-	}
-	return (k);
-}
-
-int	ft_size_lis(int *a, int size)
-{
-	int	*k;
-	int	n;
-
-	k = ft_fill_k(a, size);
-	n = ft_biggest(k, size);
-	free(k);
-	return (n);
-}
-
-int	*ft_lis(int *a, int size)
-{
-	int	*lis;
-	int	*k;
-	int	sizek;
-	int	i;
-	int	j;
-
-	k = ft_fill_k(a, size);
-	sizek = ft_biggest(k, size);
-	lis = ft_calloc(sizek);
-	i = -1;
-	j = 1;
-	while (++i < size - 1)
-	{
-		if (k[i] == j)
-		{
-			lis[j - 1] = a[i];
-			j++;
-		}
-	}
-	free(k);
-	return (lis);
-}
 
 int	ft_to_move_first(int *temp, int size)
 {
@@ -115,24 +59,24 @@ void	ft_sort(t_stack a)
 	int	*lis;
 	int	i;
 
-	i = -1;
-	lis = ft_lis(a.arr, *a.size);
-	printf("test : %d\n", ft_size_lis(a.arr, *a.size));
-	b = ft_push_lis(a, lis, ft_size_lis(a.arr, *a.size));
-	i = 0;
+	printf("value of a.size : %d\n", *a.size);
 	if (*a.size == 2)
 		ft_sa(a.arr, 0);
-	if (*a.size == 3)
+	else if (*a.size == 3)
 		ft_sort_three(a.arr, *a.size);
 	else
 	{
-		printf("\n");
+		lis = ft_lis(a.arr, *a.size);
+		printf("test : %d\n", ft_size_lis(a.arr, *a.size));
+		b = ft_push_lis(a, lis, ft_size_lis(a.arr, *a.size));
+		i = 0;
+		printf("\n b :");
 		while (i < b.size[0] - 1)
 		{
 			printf("%d ", b.arr[i]);
 			i++;
 		}
+		free(b.arr);
+		free(b.size);
 	}
-	free(b.arr);
-	free(b.size);
 }

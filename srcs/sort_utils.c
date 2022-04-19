@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/08 02:40:50 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/18 02:33:52 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,34 +35,6 @@ int	ft_sort_three(int *a, int size)
 	return (0);
 }
 
-int	ft_is_lis(int *lis, int sizelis, int n)
-{
-	int	i;
-
-	i = 0;
-	while (i < sizelis)
-	{
-		if (lis[i] == n)
-			return (TRUE);
-		i++;
-	}
-	return (FALSE);
-}
-
-int	ft_check_lis(t_stack a, int *lis, int sizelis)
-{
-	int	i;
-	
-	i = 0;
-	while (i < *a.size - 1)
-	{
-		if (ft_is_lis(lis, sizelis, a.arr[i]) == FALSE)
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
-}
-
 t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 {
 	t_stack b;
@@ -72,12 +44,13 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 	b.size = ft_calloc(1);
 	b.size[0] = 0;
 	b.arr = ft_calloc(b.size[0]);
-	while (ft_check_lis(a, lis, sizelis) == FALSE)
+	while (b.size[0] <= a.size[0] - sizelis)
 	{
 		i = -1;
-		while (i++ < *a.size - 1)
+		while (++i < *a.size - 1)
 		{
-			j = a.arr[i];
+			j = a.arr[i];			
+			printf("j : %d\n", j);
 			if (ft_is_lis(lis, sizelis, j) == FALSE)
 			{
 				while (a.arr[0] != j)
