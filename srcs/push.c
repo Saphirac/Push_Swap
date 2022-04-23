@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/20 03:36:58 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/23 14:11:52 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	ft_pa(int *lb, int *la, int *sizeb, int *sizea)
 {
 	if (lb)
 	{
+		la[*sizea] = 0;
 		*sizea = *sizea + 1;
 		ft_rra(la, *sizea, 1);
 		la[0] = lb[0];

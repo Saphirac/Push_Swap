@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/20 01:04:21 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/23 14:20:02 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 		while (++i < *a.size - 1)
 		{
 			j = a.arr[i];			
-			printf("j : %d\n", j);
 			if (ft_is_lis(lis, sizelis, j) == FALSE)
 			{
 				while (a.arr[0] != j)

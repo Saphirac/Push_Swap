@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/19 20:41:55 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/23 14:22:29 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	main(int ac, char **av)
 		return (1);
 	//ft_rra(tosort.arr, *tosort.size, 0);
 	ft_sort(tosort);
-	printf("test : %d\n", *tosort.size);
+	printf("\n");
 	i = 0;
 	while (i < *tosort.size)
 	{
