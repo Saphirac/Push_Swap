@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/23 14:20:02 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/23 17:29:52 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int	ft_pos_a(int *a, int size, int n)
 	i = 0;
 	pos = 0;
 	if (n > a[size - 1] && n < a[i])
-		pos = 1;
-	while (i < size - 2)
+		return (0);
+	while (i < size)
 	{
 		if (n > a[i] && n < a[i + 1] && i <= size / 2)
 			pos = i + 1;
@@ -80,24 +80,18 @@ int	ft_pos_a(int *a, int size, int n)
 		i++;
 	}
 	if (pos == 0)
-		pos = ft_pos_small_big(a, size, n);
+		pos = ft_pos_big(a, size, n);
 	return (pos);
 	
 }
 
-int	ft_pos_small_big(int *a, int size, int n)
+int	ft_pos_big(int *a, int size, int n)
 {
 	int	pos;
 	int i;
 
 	i = 0;
 	pos = n;
-	if (pos < ft_smallest(a, size))
-	{
-		while (a[i] != ft_smallest(a, size))
-			i++;
-		pos = i;
-	}
 	if (pos > ft_biggest(a, size))
 	{
 		while (a[i] != ft_biggest(a, size))
@@ -119,9 +113,10 @@ int	*ft_val_moves(int *a, int *b, int size, int sizeb)
 
 	temp = malloc(sizeof(int) * sizeb);
 	i = 0;
-	while (i < sizeb - 1)
+	while (i < sizeb)
 	{
 		j = ft_pos_a(a, size, b[i]);
+		printf("\n pos a : %d\n b[i] : %d\n", j, b[i]);
 		if (j >= 0)
 			temp[i] = j + i;
 		if (j < 0 && i <= sizeb / 2)

@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/20 02:21:16 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/23 17:29:30 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		*ft_tmp(int *a, int size);
 
 /*---ValMoves---*/
 int		*ft_val_moves(int *tosort, int *b, int size, int sizeb);
-int		ft_pos_small_big(int *tosort, int size, int n);
+int		ft_pos_big(int *tosort, int size, int n);
 int		ft_pos_a(int *tosort, int size, int n);
 
 /*---Sorting---*/
