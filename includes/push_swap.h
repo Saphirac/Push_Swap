@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/17 15:50:10 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/20 02:21:16 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int		ft_is_lis(int *lis, int sizelis, int n);
 int		ft_size_lis(int *tosort, int size);
 int		*ft_fill_k(int *tosort, int size);
 int		*ft_lis(int *tosort, int size);
+int		*ft_tmp(int *a, int size);
 
 
 /*---ValMoves---*/

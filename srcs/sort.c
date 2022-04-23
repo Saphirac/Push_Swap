@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/18 02:52:21 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/20 03:53:40 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ft_sort(t_stack a)
 		b = ft_push_lis(a, lis, ft_size_lis(a.arr, *a.size));
 		i = 0;
 		printf("\n b :");
-		while (i < b.size[0] - 1)
+		while (i < b.size[0])
 		{
 			printf("%d ", b.arr[i]);
 			i++;

@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:24:07 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 15:26:22 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/20 03:13:57 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int	ft_smallest(int *tab, int size)
 
 	i = 0;
 	n = tab[0];
-	while (i < size - 2)
+	while (i < size)
 	{
-		if (tab[i + 1] < tab[i] && tab[i + 1] < n)
-			n = tab[i + 1];
+		if (tab[i] < n)
+			n = tab[i];
 		i++;
 	}
 	return (n);
@@ -73,10 +73,10 @@ int	ft_biggest(int *tab, int size)
 
 	i = 0;
 	max = tab[i];
-	while (i < size - 2)
+	while (i < size)
 	{
-		if (tab[i + 1] > tab[i] && tab[i + 1] > max)
-			max = tab[i + 1];
+		if (tab[i] > max)
+			max = tab[i];
 		i++;
 	}
 	return (max);
