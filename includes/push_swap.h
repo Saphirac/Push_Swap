@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 15:05:01 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 18:00:41 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_biggest(int *tab, int size);
 int		ft_strrlen(char **str);
 int		*ft_calloc(int size);
 
+void	ft_print_int(int *tab, int size);
 void	ft_free(char **str);
 
 /*-----Moves-----*/
@@ -83,7 +84,7 @@ int		*ft_tmp(int *a, int size);
 int		ft_pos_big(int *tosort, int size, int n);
 int		ft_pos_a(int *tosort, int size, int n);
 
-void	ft_place_b(t_stack a, t_stack b, int *save, int n);
+void	ft_place_b(t_stack a, t_stack b, int *save);
 void	ft_best_move(t_stack a, t_stack b);
 
 /*---Sorting---*/

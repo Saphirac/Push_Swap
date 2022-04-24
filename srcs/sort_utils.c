@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 15:02:55 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 17:43:13 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 	
 	b.size = ft_calloc(1);
 	b.size[0] = 0;
-	b.arr = ft_calloc(b.size[0]);
-	while (ft_check_lis(a, lis, sizelis) == FALSE)
+	b.arr = ft_calloc(*a.size);
+	while (*a.size != sizelis)
 	{
 		i = -1;
-		while (++i < *a.size - 1)
+		while (++i < *a.size)
 		{
 			j = a.arr[i];			
 			if (ft_is_lis(lis, sizelis, j) == FALSE)
@@ -79,13 +79,10 @@ int	ft_pos_big(int *a, int size, int n)
 	{
 		while (a[i] != ft_biggest(a, size))
 			i++;
-		if (i == size - 1)
-			return (1);
-		i++;
 	}
 	if (i > size / 2)
-		return (-(size - i + 1));
-	return (i);
+		return (-(size - i - 1));
+	return (i + 1);
 }
 
 int	ft_pos_a(int *a, int size, int n)
@@ -95,18 +92,17 @@ int	ft_pos_a(int *a, int size, int n)
 
 	i = 0;
 	pos = 0;
-	if (n > a[size - 1] && n < a[i])
+	if (n > a[size - 1] && n < a[0])
 		return (0);
 	while (i < size)
 	{
 		if (n > a[i] && n < a[i + 1] && i <= size / 2)
 			pos = i + 1;
 		if (n > a[i] && n < a[i + 1] && i > size / 2)
-			pos = -((size - i) + 1);
+			pos = -(size - i - 1);
 		i++;
 	}
 	if (pos == 0)
 		pos = ft_pos_big(a, size, n);
 	return (pos);
-	
 }

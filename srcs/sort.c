@@ -6,18 +6,40 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 15:12:52 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 19:21:36 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_index(t_stack a, int n)
+{
+	int	i;
+
+	i = -1;
+	while (++i < *a.size)
+		if (a.arr[i] == n)
+			return (i);
+	return (i);
+}
+
+int	ft_nb_moves(int	*tab)
+{
+	if (tab[0] * tab[1] > 0)
+	{
+		if (tab[0] < 0)
+			return (ft_abs(ft_smallest(tab, 2)));
+		else
+			return (ft_biggest(tab, 2));
+	}
+	return (ft_abs(tab[0]) + ft_abs(tab[1]));
+}
 
 void	ft_best_move(t_stack a, t_stack b)
 {
 	int	temp[2];
 	int	save[2];
 	int	i;
-	int	n;
 
 	i = 0;
 	save[0] = 10000;
@@ -28,22 +50,21 @@ void	ft_best_move(t_stack a, t_stack b)
 		if (i <= *b.size / 2)
 			temp[1] = i;
 		if (i > *b.size / 2)
-			temp[1] = -(*b.size - i + 1);
-		if (ft_abs(temp[0]) + ft_abs(temp[1]) < ft_abs(save[0]) + ft_abs(save[1]))
+			temp[1] = -(*b.size - i);
+		if (ft_nb_moves(temp) < ft_nb_moves(save))
 		{
 			save[0] = temp[0];
 			save[1] = temp[1];
-			n = b.arr[i];
 		}
 		i++;
 	}
-	ft_place_b(a, b, save, n);
+	ft_place_b(a, b, save);
 }
 
 void	ft_sort(t_stack a)
 {
-	t_stack b;
-	int	*lis;
+	t_stack	b;
+	int		*lis;
 
 	if (*a.size == 2)
 		ft_sa(a.arr, 0);
@@ -55,6 +76,9 @@ void	ft_sort(t_stack a)
 		b = ft_push_lis(a, lis, ft_size_lis(a.arr, *a.size));
 		while (*b.size > 0)
 			ft_best_move(a, b);
+		while (a.arr[0] != ft_smallest(a.arr, *a.size))
+			ft_smart_rotate(a.arr, *a.size,
+				ft_index(a, ft_smallest(a.arr, *a.size)));
 		free(b.arr);
 		free(b.size);
 	}

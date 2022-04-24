@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 14:52:04 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/20 03:43:29 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 19:19:05 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,10 @@ int	*ft_fill_k(int *tmp, int size)
 	int	j;
 
 	k = ft_calloc(size);
-    i = -1;
-    while (++i < size)
-        k[i] = 1;
-	
-    i = -1;
+	i = -1;
+	while (++i < size)
+		k[i] = 1;
+	i = -1;
 	while (++i < size)
 	{
 		j = -1;
@@ -52,7 +51,7 @@ int	*ft_fill_k(int *tmp, int size)
 int	ft_size_lis(int *a, int size)
 {
 	int	*k;
-	int *tmp;
+	int	*tmp;
 	int	n;
 
 	tmp = ft_tmp(a, size);
@@ -66,7 +65,7 @@ int	ft_size_lis(int *a, int size)
 int	*ft_lis(int *a, int size)
 {
 	int	*lis;
-	int *tmp;
+	int	*tmp;
 	int	*k;
 	int	j;
 
@@ -100,18 +99,4 @@ int	ft_is_lis(int *lis, int sizelis, int n)
 		i++;
 	}
 	return (FALSE);
-}
-
-int	ft_check_lis(t_stack a, int *lis, int sizelis)
-{
-	int	i;
-
-	i = 0;
-	while (i < *a.size - 1)
-	{
-		if (ft_is_lis(lis, sizelis, a.arr[i]) == FALSE)
-			return (FALSE);
-		i++;
-	}
-	return (TRUE);
 }
