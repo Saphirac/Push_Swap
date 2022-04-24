@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/23 17:29:52 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 12:47:32 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,22 +87,20 @@ int	ft_pos_a(int *a, int size, int n)
 
 int	ft_pos_big(int *a, int size, int n)
 {
-	int	pos;
 	int i;
 
 	i = 0;
-	pos = n;
-	if (pos > ft_biggest(a, size))
+	if (n > ft_biggest(a, size))
 	{
 		while (a[i] != ft_biggest(a, size))
 			i++;
 		if (i == size - 1)
 			return (1);
-		pos = i + 1;
+		i++;
 	}
-	if (pos > size / 2)
-		return (-(size - pos + 1));
-	return (pos);
+	if (i > size / 2)
+		return (-(size - i + 1));
+	return (i);
 }
 
 int	*ft_val_moves(int *a, int *b, int size, int sizeb)
