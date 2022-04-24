@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/23 17:29:30 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 15:05:01 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,11 @@ int		*ft_tmp(int *a, int size);
 
 
 /*---ValMoves---*/
-int		*ft_val_moves(int *tosort, int *b, int size, int sizeb);
 int		ft_pos_big(int *tosort, int size, int n);
 int		ft_pos_a(int *tosort, int size, int n);
+
+void	ft_place_b(t_stack a, t_stack b, int *save, int n);
+void	ft_best_move(t_stack a, t_stack b);
 
 /*---Sorting---*/
 void	ft_smart_rotate(int *tosort, int size, int i);

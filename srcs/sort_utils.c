@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 12:47:32 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 15:02:55 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ int	ft_sort_three(int *a, int size)
 	else if (a [0] < a[1] && a[0] > a[2])
 		ft_rra(a, size, 0);
 	return (0);
+}
+
+void	ft_smart_rotate(int	*a, int size, int i)
+{
+	if (i <= size / 2)
+		ft_ra(a, size, 0);
+	else
+		ft_rra(a, size, 0);
 }
 
 t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
@@ -62,6 +70,24 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 	return (b);
 }
 
+int	ft_pos_big(int *a, int size, int n)
+{
+	int i;
+
+	i = 0;
+	if (n > ft_biggest(a, size))
+	{
+		while (a[i] != ft_biggest(a, size))
+			i++;
+		if (i == size - 1)
+			return (1);
+		i++;
+	}
+	if (i > size / 2)
+		return (-(size - i + 1));
+	return (i);
+}
+
 int	ft_pos_a(int *a, int size, int n)
 {
 	int	i;
@@ -83,53 +109,4 @@ int	ft_pos_a(int *a, int size, int n)
 		pos = ft_pos_big(a, size, n);
 	return (pos);
 	
-}
-
-int	ft_pos_big(int *a, int size, int n)
-{
-	int i;
-
-	i = 0;
-	if (n > ft_biggest(a, size))
-	{
-		while (a[i] != ft_biggest(a, size))
-			i++;
-		if (i == size - 1)
-			return (1);
-		i++;
-	}
-	if (i > size / 2)
-		return (-(size - i + 1));
-	return (i);
-}
-
-int	*ft_val_moves(int *a, int *b, int size, int sizeb)
-{
-	int	*temp;
-	int	i;
-	int j;
-
-	temp = malloc(sizeof(int) * sizeb);
-	i = 0;
-	while (i < sizeb)
-	{
-		j = ft_pos_a(a, size, b[i]);
-		printf("\n pos a : %d\n b[i] : %d\n", j, b[i]);
-		if (j >= 0)
-			temp[i] = j + i;
-		if (j < 0 && i <= sizeb / 2)
-			temp[i] = -j + i;
-		if (j < 0 && i > sizeb / 2)
-			temp[i] = -j + (sizeb - i + 1);
-		i++;
-	}
-	return (temp);
-}
-
-void	ft_smart_rotate(int	*a, int size, int i)
-{
-	if (i <= size / 2)
-		ft_ra(a, size, 0);
-	else
-		ft_rra(a, size, 0);
 }

@@ -6,35 +6,44 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 23:39:09 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/23 15:31:07 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 15:12:52 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_to_move_first(int *temp, int size)
+void	ft_best_move(t_stack a, t_stack b)
 {
+	int	temp[2];
+	int	save[2];
 	int	i;
-	int	s;
+	int	n;
 
 	i = 0;
-	s = ft_smallest(temp, size);
-	while (temp[i] != s)
+	save[0] = 10000;
+	save[1] = 10000;
+	while (i < *b.size)
+	{
+		temp[0] = ft_pos_a(a.arr, *a.size, b.arr[i]);
+		if (i <= *b.size / 2)
+			temp[1] = i;
+		if (i > *b.size / 2)
+			temp[1] = -(*b.size - i + 1);
+		if (ft_abs(temp[0]) + ft_abs(temp[1]) < ft_abs(save[0]) + ft_abs(save[1]))
+		{
+			save[0] = temp[0];
+			save[1] = temp[1];
+			n = b.arr[i];
+		}
 		i++;
-	return (i);
+	}
+	ft_place_b(a, b, save, n);
 }
-
-/*void	ft_place_b(t_stack a, t_stack b)
-{
-	
-}*/
 
 void	ft_sort(t_stack a)
 {
 	t_stack b;
 	int	*lis;
-	int	*tmp;
-	int	i;
 
 	if (*a.size == 2)
 		ft_sa(a.arr, 0);
@@ -44,16 +53,8 @@ void	ft_sort(t_stack a)
 	{
 		lis = ft_lis(a.arr, *a.size);
 		b = ft_push_lis(a, lis, ft_size_lis(a.arr, *a.size));
-		i = 0;
-		tmp = ft_val_moves(a.arr, b.arr, *a.size, *b.size);
-		while (i < b.size[0])
-		{
-			printf("b : %d\n", b.arr[i]);
-			printf("tmp : %d\n", tmp[i]);
-			i++;
-		}
-		printf("\n");
-
+		while (*b.size > 0)
+			ft_best_move(a, b);
 		free(b.arr);
 		free(b.size);
 	}
