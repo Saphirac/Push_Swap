@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 14:52:04 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 19:19:05 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 21:09:38 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,13 @@ int	*ft_lis(int *a, int size)
 	k = ft_fill_k(tmp, size);
 	j = ft_biggest(k, size);
 	lis = ft_calloc(j);
-	while (size > -1)
+	while (size-- > 0)
 	{
 		if (k[size] == j)
 		{
 			lis[j - 1] = tmp[size];
 			j--;
 		}
-		size--;
 	}
 	free(tmp);
 	free(k);
