@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 17:43:13 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/24 20:55:21 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,22 +48,25 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 	t_stack b;
 	int	i;
 	int	j;
+	int	tmp;
+	int	sizecpy;
 	
 	b.size = ft_calloc(1);
 	b.size[0] = 0;
 	b.arr = ft_calloc(*a.size);
-	while (*a.size != sizelis)
-	{
-		i = -1;
-		while (++i < *a.size)
+	sizecpy = *a.size;
+	j = 0;
+	i = -1;
+	while (++i < *a.size && j < sizecpy - sizelis + 1)
+	{		
+		if (ft_is_lis(lis, sizelis, a.arr[i]) == FALSE)
 		{
-			j = a.arr[i];			
-			if (ft_is_lis(lis, sizelis, j) == FALSE)
-			{
-				while (a.arr[0] != j)
-					ft_smart_rotate(a.arr, a.size[0], i);
-				ft_pb(a.arr, b.arr, a.size, b.size);
-			}
+			tmp = a.arr[i];
+			while (a.arr[0] != tmp)
+				ft_smart_rotate(a.arr, a.size[0], i);
+			ft_pb(a.arr, b.arr, a.size, b.size);
+			j++;
+			i = -1;
 		}
 	}
 	free(lis);
