@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:24:07 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 13:44:00 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:47:00 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	*ft_calloc(int size)
 {
 	int	*ret;
 	int	i;
-	
+
 	ret = malloc(sizeof(int) * size);
 	i = 0;
 	while (i < size - 1)

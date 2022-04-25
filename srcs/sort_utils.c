@@ -6,34 +6,11 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/25 17:34:58 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:46:39 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	ft_sort_three(int *a, int size)
-{
-	if (ft_check_sorted(a, size) == FALSE)
-		return (1);
-	else if (a[0] > a[1] && a[0] < a[2])
-		ft_sa(a, 0);
-	else if (a[0] > a[1] && a[1] > a[2])
-	{
-		ft_sa(a, 0);
-		ft_rra(a, size, 0);
-	}
-	else if (a[0] > a[1] && a[0] > a[2])
-		ft_ra(a, size, 0);
-	else if (a[0] < a[1] && a[0] < a[2])
-	{
-		ft_sa(a, 0);
-		ft_ra(a, size, 0);
-	}
-	else if (a [0] < a[1] && a[0] > a[2])
-		ft_rra(a, size, 0);
-	return (0);
-}
 
 void	ft_smart_rotate(int	*a, int size, int i)
 {
@@ -51,11 +28,11 @@ void	ft_ruf(t_stack a, int i, int n)
 
 t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 {
-	t_stack b;
-	int	i;
-	int	j;
-	int	sizecpy;
-	
+	t_stack	b;
+	int		i;
+	int		j;
+	int		sizecpy;
+
 	b.size = ft_calloc(1);
 	b.size[0] = 0;
 	b.arr = ft_calloc(*a.size);
@@ -78,7 +55,7 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 
 int	ft_pos_big(int *a, int size, int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (n > ft_biggest(a, size))

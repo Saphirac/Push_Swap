@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 18:00:41 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:41:56 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,72 +27,68 @@ typedef struct s_stack
 }	t_stack;
 
 /*-----Parse-----*/
-int		*ft_parse_two(char **tab, int ac);
-int		*ft_parse_one(char *tab);
+int			*ft_parse_two(char **tab, int ac);
+int			*ft_parse_one(char *tab);
 
 /*-----Checks-----*/
-int		ft_check_double(int *tab, int size);
-int		ft_check_sorted(int *i, int size);
-int		ft_check_digits(char *str);
-int		ft_check(int *tosort, int size);
+int			ft_check_double(int *tab, int size);
+int			ft_check_sorted(int *i, int size);
+int			ft_check_digits(char *str);
+int			ft_check(int *tosort, int size);
 
 /*-----Other-----*/
-int		ft_smallest(int *tab, int size);
-int		ft_biggest(int *tab, int size);
+int			ft_smallest(int *tab, int size);
+int			ft_biggest(int *tab, int size);
+int			ft_strrlen(char **str);
+int			*ft_calloc(int size);
 
-int		ft_strrlen(char **str);
-int		*ft_calloc(int size);
-
-void	ft_print_int(int *tab, int size);
-void	ft_free(char **str);
+void		ft_print_int(int *tab, int size);
+void		ft_free(char **str);
 
 /*-----Moves-----*/
 
 /*---Swap---*/
-int		ft_ss(int *la, int *lb);
-int		ft_sa(int *la, int c);
-int		ft_sb(int *lb, int c);
+int			ft_ss(int *la, int *lb);
+int			ft_sa(int *la, int c);
+int			ft_sb(int *lb, int c);
 /*---Push---*/
 void		ft_pb(int *la, int *lb, int *sizea, int *sizeb);
 void		ft_pa(int *lb, int *la, int *sizeb, int *sizea);
 
 /*---Rotate---*/
-int		ft_rr(int *la, int *lb, int size, int sizeb);
-int		ft_ra(int *la, int size, int c);
-int		ft_rb(int *lb, int size, int c);
+int			ft_rr(int *la, int *lb, int size, int sizeb);
+int			ft_ra(int *la, int size, int c);
+int			ft_rb(int *lb, int size, int c);
 
 /*---Reverse_Rotate---*/
-int		ft_rrr(int *la, int *lb, int size, int sizeb);
-int		ft_rra(int *la, int size, int c);
-int		ft_rrb(int *lb, int sizeb, int c);
+int			ft_rrr(int *la, int *lb, int size, int sizeb);
+int			ft_rra(int *la, int size, int c);
+int			ft_rrb(int *lb, int sizeb, int c);
 
 /*-----Sort-----*/
 
 /*---B---*/
-t_stack ft_push_lis(t_stack tosort, int *lis, int sizelis);
-int		ft_check_lis(t_stack a, int *lis, int sizelis);
-int		ft_is_lis(int *lis, int sizelis, int n);
+t_stack		ft_push_lis(t_stack tosort, int *lis, int sizelis);
+int			ft_check_lis(t_stack a, int *lis, int sizelis);
+int			ft_is_lis(int *lis, int sizelis, int n);
 
 /*---Lis---*/
-int		ft_size_lis(int *tosort, int size);
-int		*ft_fill_k(int *tosort, int size);
-int		*ft_lis(int *tosort, int size);
-int		*ft_tmp(int *a, int size);
-
+int			ft_size_lis(int *tosort, int size);
+int			*ft_fill_k(int *tosort, int size);
+int			*ft_lis(int *tosort, int size);
+int			*ft_tmp(int *a, int size);
 
 /*---ValMoves---*/
-int		ft_pos_big(int *tosort, int size, int n);
-int		ft_pos_a(int *tosort, int size, int n);
+int			ft_pos_big(int *tosort, int size, int n);
+int			ft_pos_a(int *tosort, int size, int n);
 
-void	ft_place_b(t_stack a, t_stack b, int *save);
-void	ft_best_move(t_stack a, t_stack b);
+void		ft_place_b(t_stack a, t_stack b, int *save);
+void		ft_best_move(t_stack a, t_stack b);
 
 /*---Sorting---*/
-void	ft_smart_rotate(int *tosort, int size, int i);
-void	ft_sort(t_stack tosort);
+void		ft_smart_rotate(int *tosort, int size, int i);
+void		ft_sort(t_stack tosort);
 
-int		ft_sort_three(int *tosort, int size);
-
-
+int			ft_sort_three(int *tosort, int size);
 
 #endif

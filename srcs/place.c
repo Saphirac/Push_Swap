@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:00:25 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 18:34:05 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:44:36 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ void	ft_place_same_n(t_stack a, t_stack b, int *save)
 	j = save[1];
 	while (i < 0 && j < 0)
 	{
-        ft_rrr(a.arr, b.arr, *a.size, *b.size);
-        i++;
-        j++;
-    }
+		ft_rrr(a.arr, b.arr, *a.size, *b.size);
+		i++;
+		j++;
+	}
 	while (i < 0)
 	{
-        ft_rra(a.arr, *a.size, 0);
-        i++;
-    }
+		ft_rra(a.arr, *a.size, 0);
+		i++;
+	}
 	while (j < 0)
 	{
-        ft_rrb(b.arr, *b.size, 0);
-        j++;
-    }
+		ft_rrb(b.arr, *b.size, 0);
+		j++;
+	}
 }
 
 void	ft_place_same_p(t_stack a, t_stack b, int *save)
@@ -46,20 +46,20 @@ void	ft_place_same_p(t_stack a, t_stack b, int *save)
 	j = save[1];
 	while (i > 0 && j > 0)
 	{
-        ft_rr(a.arr, b.arr, *a.size, *b.size);
-        i--;
-        j--;
-    }
+		ft_rr(a.arr, b.arr, *a.size, *b.size);
+		i--;
+		j--;
+	}
 	while (i > 0)
 	{
-        ft_ra(a.arr, *a.size, 0);
-        i--;
-    }
+		ft_ra(a.arr, *a.size, 0);
+		i--;
+	}
 	while (j > 0)
 	{
-        ft_rb(b.arr, *b.size, 0);
-        j--;
-    }
+		ft_rb(b.arr, *b.size, 0);
+		j--;
+	}
 }
 
 void	ft_place_diff_ab(t_stack a, t_stack b, int *save)
@@ -71,14 +71,14 @@ void	ft_place_diff_ab(t_stack a, t_stack b, int *save)
 	j = save[1];
 	while (i > 0)
 	{
-        ft_ra(a.arr, *a.size, 0);
-        i--;
-    }
+		ft_ra(a.arr, *a.size, 0);
+		i--;
+	}
 	while (j < 0)
 	{
-        ft_rrb(b.arr, *b.size, 0);
-        j++;
-    }
+		ft_rrb(b.arr, *b.size, 0);
+		j++;
+	}
 }
 
 void	ft_place_diff_ba(t_stack a, t_stack b, int *save)
@@ -89,15 +89,15 @@ void	ft_place_diff_ba(t_stack a, t_stack b, int *save)
 	i = save[0];
 	j = save[1];
 	while (i < 0)
-    {
+	{
 		ft_rra(a.arr, *a.size, 0);
-        i++;
-    }
+		i++;
+	}
 	while (j > 0)
 	{
-        ft_rb(b.arr, *b.size, 0);
-        j--;
-    }
+		ft_rb(b.arr, *b.size, 0);
+		j--;
+	}
 }
 
 void	ft_place_b(t_stack a, t_stack b, int *save)
