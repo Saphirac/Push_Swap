@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 19:23:59 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 20:57:50 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:31:06 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	main(int ac, char **av)
 	if (ft_check(tosort.arr, *tosort.size) == 1)
 		return (1);
 	ft_sort(tosort);
-	//ft_print_int(tosort.arr, *tosort.size);
 	free(tosort.arr);
 	free(tosort.size);
 	return (0);

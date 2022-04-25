@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/24 20:55:21 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:34:58 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,17 @@ void	ft_smart_rotate(int	*a, int size, int i)
 		ft_rra(a, size, 0);
 }
 
+void	ft_ruf(t_stack a, int i, int n)
+{
+	while (a.arr[0] != n)
+		ft_smart_rotate(a.arr, *a.size, i);
+}
+
 t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 {
 	t_stack b;
 	int	i;
 	int	j;
-	int	tmp;
 	int	sizecpy;
 	
 	b.size = ft_calloc(1);
@@ -61,9 +66,7 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 	{		
 		if (ft_is_lis(lis, sizelis, a.arr[i]) == FALSE)
 		{
-			tmp = a.arr[i];
-			while (a.arr[0] != tmp)
-				ft_smart_rotate(a.arr, a.size[0], i);
+			ft_ruf(a, i, a.arr[i]);
 			ft_pb(a.arr, b.arr, a.size, b.size);
 			j++;
 			i = -1;
@@ -91,21 +94,17 @@ int	ft_pos_big(int *a, int size, int n)
 int	ft_pos_a(int *a, int size, int n)
 {
 	int	i;
-	int	pos;
 
 	i = 0;
-	pos = 0;
 	if (n > a[size - 1] && n < a[0])
 		return (0);
 	while (i < size)
 	{
 		if (n > a[i] && n < a[i + 1] && i <= size / 2)
-			pos = i + 1;
-		if (n > a[i] && n < a[i + 1] && i > size / 2)
-			pos = -(size - i - 1);
+			return (i + 1);
+		else if (n > a[i] && n < a[i + 1] && i > size / 2)
+			return (-(size - i - 1));
 		i++;
 	}
-	if (pos == 0)
-		pos = ft_pos_big(a, size, n);
-	return (pos);
+	return (ft_pos_big(a, size, n));
 }
