@@ -35,7 +35,7 @@ int	*ft_parse_one(char *tab)
 		tosort[j] = ft_atoi(split[j]);
 	}
 	ft_free(split);
-	return (tosort);
+	return ((int *)tosort);
 }
 
 int	*ft_parse_two(char **tab, int ac)
@@ -58,4 +58,36 @@ int	*ft_parse_two(char **tab, int ac)
 		tosort[j] = ft_atoi(tab[j]);
 	}
 	return (tosort);
+}
+
+int	*ft_parse(int ac, char **av)
+{
+	int	*tosort;
+
+	if (ac == 2)
+		tosort = ft_parse_one(av[1]);
+	else if (ac > 2)
+		tosort = ft_parse_two(av + 1, ac);
+	else
+	{
+		write(1, "Error\n", 6);
+		return (NULL);
+	}
+	return (tosort);
+}
+
+int	ft_size(int ac, char **av)
+{
+	int		size;
+	char	**temp;
+
+	if (ac == 2)
+	{
+		temp = ft_split(av[1], ' ');
+		size = ft_strrlen(temp);
+		ft_free(temp);
+	}
+	else if (ac > 2)
+		size = ac - 1;
+	return (size);
 }

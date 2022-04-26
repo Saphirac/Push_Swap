@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/25 17:41:56 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/26 05:08:59 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ typedef struct s_stack
 int			*ft_parse_two(char **tab, int ac);
 int			*ft_parse_one(char *tab);
 
+int			*ft_parse(int ac, char **av);
+int			ft_size(int ac, char **av);
+
+
 /*-----Checks-----*/
 int			ft_check_double(int *tab, int size);
 int			ft_check_sorted(int *i, int size);
@@ -42,7 +46,6 @@ int			ft_biggest(int *tab, int size);
 int			ft_strrlen(char **str);
 int			*ft_calloc(int size);
 
-void		ft_print_int(int *tab, int size);
 void		ft_free(char **str);
 
 /*-----Moves-----*/
@@ -90,5 +93,12 @@ void		ft_smart_rotate(int *tosort, int size, int i);
 void		ft_sort(t_stack tosort);
 
 int			ft_sort_three(int *tosort, int size);
+
+/*-----Bonus-----*/
+void	ft_cmp_rrotate(t_stack a, t_stack b, char *move);
+void	ft_cmp_rotate(t_stack a, t_stack b, char *move);
+void	ft_cmp_push(t_stack a, t_stack b, char *move);
+void	ft_cmp_swap(t_stack a, t_stack b, char *move);
+
 
 #endif

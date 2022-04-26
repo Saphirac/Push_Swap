@@ -20,10 +20,10 @@ int	ft_check_sorted(int *i, int size)
 	while (j < size - 1)
 	{
 		if (i[j] > i[j + 1])
-			return (1);
+			return (FALSE);
 		j++;
 	}
-	return (0);
+	return (TRUE);
 }
 
 int	ft_check_digits(char *str)
@@ -33,16 +33,15 @@ int	ft_check_digits(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == FALSE && str[i] != '-')
+		if (ft_isdigit(str[i]) == FALSE 
+			&& str[i] != '-' && str[i] != '+')
 			return (1);
 		i++;
 	}
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		i--;
-	if (!ft_strncmp(str, "-2147483649", 11)
-		|| !ft_strncmp(str, "2147483648", 10))
-		return (1);
-	if (i >= 11)
+	if ((ft_atoi(str) > 2147483647 
+		&& ft_atoi(str) < -2147483648))
 		return (1);
 	return (0);
 }
@@ -75,7 +74,7 @@ int	ft_check(int *tosort, int size)
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (ft_check_sorted(tosort, size) == FALSE || size == 1)
+	if (ft_check_sorted(tosort, size) == TRUE || size == 1)
 	{
 		free(tosort);
 		return (1);

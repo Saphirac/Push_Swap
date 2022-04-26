@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort_smalls.c                                   :+:      :+:    :+:   */
+/*   sort_smalls.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:45:51 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/25 17:46:15 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/26 05:06:08 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_sort_three(int *a, int size)
 {
-	if (ft_check_sorted(a, size) == FALSE)
+	if (ft_check_sorted(a, size) == TRUE)
 		return (1);
 	else if (a[0] > a[1] && a[0] < a[2])
 		ft_sa(a, 0);

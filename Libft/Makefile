@@ -6,7 +6,7 @@
 #    By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 16:23:10 by mcourtoi          #+#    #+#              #
-#    Updated: 2022/04/24 15:08:46 by mcourtoi         ###   ########.fr        #
+#    Updated: 2022/04/26 04:12:32 by mcourtoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS = ft_atoi.c \
        ft_split.c ft_strchr.c ft_strdup.c \
        ft_strjoin.c \
        ft_strlcpy.c ft_strlen.c \
-       ft_strncmp.c ft_abs.c
+       ft_strcmp.c ft_abs.c
 
 OBJS = ${SRCS:.c=.o}
 

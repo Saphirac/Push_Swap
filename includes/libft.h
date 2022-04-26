@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 15:42:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/25 17:39:10 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/26 04:42:21 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 # define TRUE 1
 # define FALSE 0
 
-int				ft_atoi(char *nptr);
+long			ft_atoi(char *nptr);
 int				ft_isdigit(int c);
 int				ft_abs(int n);
-int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_strcmp(const char *s1, const char *s2);
 
 char			**ft_split(char const *s, char c);
 char			*ft_strchr(const char *s, int c);
