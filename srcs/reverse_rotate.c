@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	ft_rra(int *la, int size, int c)
+void	ft_rra(int *la, int size, int c)
 {
 	int	swap;
 	int	temp;
@@ -25,11 +25,10 @@ int	ft_rra(int *la, int size, int c)
 		la[temp - 1] = swap;
 	}
 	if (c == 0)
-		return (write(1, "rra\n", 4));
-	return (1);
+		write(1, "rra\n", 4);
 }
 
-int	ft_rrb(int *lb, int size, int c)
+void	ft_rrb(int *lb, int size, int c)
 {
 	int	swap;
 	int	temp;
@@ -42,13 +41,13 @@ int	ft_rrb(int *lb, int size, int c)
 		lb[temp - 1] = swap;
 	}
 	if (c == 0)
-		return (write(1, "rrb\n", 4));
-	return (1);
+		write(1, "rrb\n", 4);
 }
 
-int	ft_rrr(int *la, int *lb, int size, int sizeb)
+void	ft_rrr(t_stack a, t_stack b, int c)
 {
-	ft_rra(la, size, 1);
-	ft_rrb(lb, sizeb, 1);
-	return (write(1, "rrr\n", 4));
+	ft_rra(a.arr, *a.size, 1);
+	ft_rrb(b.arr, *b.size, 1);
+	if (c == 0)
+		write(1, "rrr\n", 4);
 }

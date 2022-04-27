@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 15:00:25 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/25 17:44:36 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:51:07 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_place_same_n(t_stack a, t_stack b, int *save)
 	j = save[1];
 	while (i < 0 && j < 0)
 	{
-		ft_rrr(a.arr, b.arr, *a.size, *b.size);
+		ft_rrr(a, b, 0);
 		i++;
 		j++;
 	}
@@ -46,7 +46,7 @@ void	ft_place_same_p(t_stack a, t_stack b, int *save)
 	j = save[1];
 	while (i > 0 && j > 0)
 	{
-		ft_rr(a.arr, b.arr, *a.size, *b.size);
+		ft_rr(a, b, 0);
 		i--;
 		j--;
 	}
@@ -110,5 +110,5 @@ void	ft_place_b(t_stack a, t_stack b, int *save)
 		ft_place_diff_ab(a, b, save);
 	else if (save[0] < 0 && save[1] >= 0)
 		ft_place_diff_ba(a, b, save);
-	ft_pa(b.arr, a.arr, b.size, a.size);
+	ft_pa(a, b, 0);
 }

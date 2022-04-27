@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 00:04:02 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/25 17:46:39 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:52:04 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack	ft_push_lis(t_stack a, int *lis, int sizelis)
 		if (ft_is_lis(lis, sizelis, a.arr[i]) == FALSE)
 		{
 			ft_ruf(a, i, a.arr[i]);
-			ft_pb(a.arr, b.arr, a.size, b.size);
+			ft_pb(a, b, 0);
 			j++;
 			i = -1;
 		}

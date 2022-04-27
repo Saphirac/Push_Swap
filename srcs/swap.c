@@ -6,13 +6,13 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:40:19 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/06 00:02:13 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 04:01:44 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_sa(int *la, int c)
+void	ft_sa(int *la, int c)
 {
 	int	swap;
 
@@ -20,11 +20,10 @@ int	ft_sa(int *la, int c)
 	la[0] = la[1];
 	la[1] = swap;
 	if (c == 0)
-		return (write(1, "sa\n", 3));
-	return (1);
+		write(1, "sa\n", 3);
 }
 
-int	ft_sb(int *lb, int c)
+void	ft_sb(int *lb, int c)
 {
 	int	swap;
 
@@ -32,13 +31,13 @@ int	ft_sb(int *lb, int c)
 	lb[0] = lb[1];
 	lb[1] = swap;
 	if (c == 0)
-		return (write(1, "sb\n", 3));
-	return (1);
+		write(1, "sb\n", 3);
 }
 
-int	ft_ss(int *la, int *lb)
+void	ft_ss(t_stack a, t_stack b, int c)
 {
-	ft_sa(la, 1);
-	ft_sb(lb, 1);
-	return (write(1, "ss\n", 3));
+	ft_sa(a.arr, 1);
+	ft_sb(b.arr, 1);
+	if (c == 0)
+		write(1, "ss\n", 3);
 }

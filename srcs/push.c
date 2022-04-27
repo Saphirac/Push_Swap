@@ -6,38 +6,40 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 12:52:18 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/23 14:11:52 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 04:03:36 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_pb(int *la, int *lb, int *sizea, int *sizeb)
+void	ft_pb(t_stack a, t_stack b, int c)
 {
-	if (la)
+	if (a.arr)
 	{
-		lb[*sizeb] = 0;
-		*sizeb = *sizeb + 1;
-		ft_rrb(lb, *sizeb, 1);
-		lb[0] = la[0];
-		ft_ra(la, *sizea, 1);
-		*sizea = *sizea - 1;
-		la[*sizea] = 0;
-		write(1, "pb\n", 3);
+		b.arr[*b.size] = 0;
+		*b.size = *b.size + 1;
+		ft_rrb(b.arr, *b.size, 1);
+		b.arr[0] = a.arr[0];
+		ft_ra(a.arr, *a.size, 1);
+		*a.size = *a.size - 1;
+		a.arr[*a.size] = 0;
+		if (c == 0)
+			write(1, "pb\n", 3);
 	}
 }
 
-void	ft_pa(int *lb, int *la, int *sizeb, int *sizea)
+void	ft_pa(t_stack a, t_stack b, int c)
 {
-	if (lb)
+	if (b.arr)
 	{
-		la[*sizea] = 0;
-		*sizea = *sizea + 1;
-		ft_rra(la, *sizea, 1);
-		la[0] = lb[0];
-		ft_rb(lb, *sizeb, 1);
-		*sizeb = *sizeb - 1;
-		lb[*sizeb] = 0;
-		write(1, "pa\n", 3);
+		a.arr[*a.size] = 0;
+		*a.size = *a.size + 1;
+		ft_rra(a.arr, *a.size, 1);
+		a.arr[0] = b.arr[0];
+		ft_rb(b.arr, *b.size, 1);
+		*b.size = *b.size - 1;
+		b.arr[*b.size] = 0;
+		if (c == 0)
+			write(1, "pa\n", 3);
 	}
 }

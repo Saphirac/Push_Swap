@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/27 03:31:43 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 04:02:09 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,22 +50,22 @@ void		ft_free(char **str);
 /*-----Moves-----*/
 
 /*---Swap---*/
-int			ft_ss(int *la, int *lb);
-int			ft_sa(int *la, int c);
-int			ft_sb(int *lb, int c);
+void		ft_ss(t_stack a, t_stack b, int c);
+void		ft_sa(int *la, int c);
+void		ft_sb(int *lb, int c);
 /*---Push---*/
-void		ft_pb(int *la, int *lb, int *sizea, int *sizeb);
-void		ft_pa(int *lb, int *la, int *sizeb, int *sizea);
+void		ft_pb(t_stack a, t_stack b, int c);
+void		ft_pa(t_stack a, t_stack b, int c);
 
 /*---Rotate---*/
-int			ft_rr(int *la, int *lb, int size, int sizeb);
-int			ft_ra(int *la, int size, int c);
-int			ft_rb(int *lb, int size, int c);
+void		ft_rr(t_stack a, t_stack b, int c);
+void		ft_ra(int *la, int size, int c);
+void		ft_rb(int *lb, int size, int c);
 
 /*---Reverse_Rotate---*/
-int			ft_rrr(int *la, int *lb, int size, int sizeb);
-int			ft_rra(int *la, int size, int c);
-int			ft_rrb(int *lb, int sizeb, int c);
+void		ft_rrr(t_stack a, t_stack b, int c);
+void		ft_rra(int *la, int size, int c);
+void		ft_rrb(int *lb, int sizeb, int c);
 
 /*-----Sort-----*/
 
