@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maparigi <maparigi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 03:43:51 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/27 15:57:10 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/28 00:31:47 by maparigi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ void	ft_moves(t_stack a)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	//free(b.arr);
-	//free(b.size);
+	free(b.arr);
+	free(b.size);
 }
 
 int	main(int ac, char **av)
@@ -66,6 +66,6 @@ int	main(int ac, char **av)
 	if (ft_check(a) == 1)
 		return (1);
 	ft_moves(a);
-	//free(a.arr);
-	//free(a.size);
+	free(a.arr);
+	free(a.size);
 }
