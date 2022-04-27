@@ -25,7 +25,7 @@ int	*ft_parse_one(char *tab)
 	j = -1;
 	while (split[++j])
 	{
-		if (ft_check_digits(split[j]) == TRUE)
+		if (!is_digit(split[j]))
 		{
 			write(1, "Error\n", 6);
 			ft_free(split);
@@ -35,7 +35,7 @@ int	*ft_parse_one(char *tab)
 		tosort[j] = ft_atoi(split[j]);
 	}
 	ft_free(split);
-	return ((int *)tosort);
+	return (tosort);
 }
 
 int	*ft_parse_two(char **tab, int ac)
@@ -49,7 +49,7 @@ int	*ft_parse_two(char **tab, int ac)
 	j = -1;
 	while (tab[++j])
 	{
-		if (ft_check_digits(tab[j]) == TRUE)
+		if (!is_digit(tab[j]))
 		{
 			write(1, "Error\n", 6);
 			free(tosort);

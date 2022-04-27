@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maparigi <maparigi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/27 04:02:09 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 15:07:30 by maparigi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int			ft_size(int ac, char **av);
 /*-----Checks-----*/
 int			ft_check_double(int *tab, int size);
 int			ft_check_sorted(int *i, int size);
-int			ft_check_digits(char *str);
 int			ft_check(t_stack tosort);
+int			is_digit(char *stack);
 
 /*-----Other-----*/
 int			ft_smallest(int *tab, int size);
