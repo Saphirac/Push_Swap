@@ -26,7 +26,7 @@ int	ft_ra(int *la, int size, int c)
 		i++;
 	}
 	if (c == 0)
-		return (write(1, "ra\n", 3));
+		return (write(1, "ra\n", 4));
 	return (1);
 }
 

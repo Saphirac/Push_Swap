@@ -69,10 +69,7 @@ int	*ft_parse(int ac, char **av)
 	else if (ac > 2)
 		tosort = ft_parse_two(av + 1, ac);
 	else
-	{
-		write(1, "Error\n", 6);
 		return (NULL);
-	}
 	return (tosort);
 }
 

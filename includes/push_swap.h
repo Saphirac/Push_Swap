@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/14 17:27:20 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/26 05:08:59 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/27 03:31:43 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ int			*ft_parse_one(char *tab);
 int			*ft_parse(int ac, char **av);
 int			ft_size(int ac, char **av);
 
-
 /*-----Checks-----*/
 int			ft_check_double(int *tab, int size);
 int			ft_check_sorted(int *i, int size);
 int			ft_check_digits(char *str);
-int			ft_check(int *tosort, int size);
+int			ft_check(t_stack tosort);
 
 /*-----Other-----*/
 int			ft_smallest(int *tab, int size);
@@ -95,10 +94,9 @@ void		ft_sort(t_stack tosort);
 int			ft_sort_three(int *tosort, int size);
 
 /*-----Bonus-----*/
-void	ft_cmp_rrotate(t_stack a, t_stack b, char *move);
-void	ft_cmp_rotate(t_stack a, t_stack b, char *move);
-void	ft_cmp_push(t_stack a, t_stack b, char *move);
-void	ft_cmp_swap(t_stack a, t_stack b, char *move);
-
+void		ft_cmp_rrotate(t_stack a, t_stack b, char *move);
+void		ft_cmp_rotate(t_stack a, t_stack b, char *move);
+void		ft_cmp_push(t_stack a, t_stack b, char *move);
+void		ft_cmp_swap(t_stack a, t_stack b, char *move);
 
 #endif

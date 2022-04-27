@@ -33,15 +33,15 @@ int	ft_check_digits(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) == FALSE 
+		if (ft_isdigit(str[i]) == FALSE
 			&& str[i] != '-' && str[i] != '+')
 			return (1);
 		i++;
 	}
 	if (str[0] == '-' || str[0] == '+')
 		i--;
-	if ((ft_atoi(str) > 2147483647 
-		&& ft_atoi(str) < -2147483648))
+	if ((ft_atoi(str) > 2147483647
+			&& ft_atoi(str) < -2147483648))
 		return (1);
 	return (0);
 }
@@ -66,17 +66,19 @@ int	ft_check_double(int *tab, int size)
 	return (0);
 }
 
-int	ft_check(int *tosort, int size)
+int	ft_check(t_stack tosort)
 {
-	if (ft_check_double(tosort, size) == 1)
+	if (ft_check_double(tosort.arr, *tosort.size) == 1)
 	{
-		free(tosort);
+		free(tosort.arr);
+		free(tosort.size);
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (ft_check_sorted(tosort, size) == TRUE || size == 1)
+	if (ft_check_sorted(tosort.arr, *tosort.size) == TRUE || *tosort.size == 1)
 	{
-		free(tosort);
+		free(tosort.arr);
+		free(tosort.size);
 		return (1);
 	}
 	return (0);
