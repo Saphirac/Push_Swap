@@ -55,7 +55,7 @@ void		ft_sa(int *la, int c);
 void		ft_sb(int *lb, int c);
 /*---Push---*/
 void		ft_pb(t_stack a, t_stack b, int c);
-void		ft_pa(t_stack a, t_stack b, int c);
+void		ft_pa(t_stack b, t_stack a, int c);
 
 /*---Rotate---*/
 void		ft_rr(t_stack a, t_stack b, int c);

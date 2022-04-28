@@ -57,7 +57,7 @@ ${LIBFT}:
 	make -C ${LIBFT_PATH}
 
 clean:
-	rm -f ${OBJS} ${OBJSBONUS}
+	rm -f ${OBJS} ${OBJSBONUS} ${OBJSMAIN}
 	make -C ${LIBFT_PATH} clean
 
 fclean: clean

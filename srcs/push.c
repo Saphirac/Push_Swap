@@ -28,7 +28,7 @@ void	ft_pb(t_stack a, t_stack b, int c)
 	}
 }
 
-void	ft_pa(t_stack a, t_stack b, int c)
+void	ft_pa(t_stack b, t_stack a, int c)
 {
 	if (b.arr)
 	{

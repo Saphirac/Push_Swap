@@ -28,18 +28,15 @@ int	is_digit(char *stack)
 	return (1);
 }
 
-int	ft_check_sorted(int *i, int size)
+int	ft_check_sorted(int *a_stack, int ac)
 {
-	int	j;
+	int    i;
 
-	j = 0;
-	while (j < size - 1)
-	{
-		if (i[j] > i[j + 1])
-			return (FALSE);
-		j++;
-	}
-	return (TRUE);
+    i = -1;
+    while (++i < ac - 1)
+        if (a_stack[i] > a_stack[i + 1])
+            return (FALSE);
+    return (TRUE);
 }
 
 int	ft_check_double(int *tab, int size)

@@ -110,5 +110,5 @@ void	ft_place_b(t_stack a, t_stack b, int *save)
 		ft_place_diff_ab(a, b, save);
 	else if (save[0] < 0 && save[1] >= 0)
 		ft_place_diff_ba(a, b, save);
-	ft_pa(a, b, 0);
+	ft_pa(b, a, 0);
 }
