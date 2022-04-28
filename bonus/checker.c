@@ -13,28 +13,18 @@
 #include "push_swap.h"
 #include "get_next_line.h"
 
-void	ft_print_int(int *tab, int size)
-{
-	int	i;
-
-	i= -1;
-	while (++i < size)
-		printf("%d ", tab[i]);
-	printf("\n"); 
-}
-
 static int	ft_do_moves(t_stack a, t_stack b, char *move)
 {
-	if (move[0] == 'r' && move[1] == 'r' 
-		&& (move[2] == 'a' || move[2] == 'b' || move[2] == 'r') && move[3] == '\n')
+	if (move[0] == 'r' && move[1] == 'r' && (move[2] == 'a'
+			|| move[2] == 'b' || move[2] == 'r') && move[3] == '\n')
 		ft_cmp_rrotate(a, b, move);
-	else if (move[0] == 'r' && (move[1] == 'r' ||
-			move[1] == 'a' || move[1] == 'b') && move[2] == '\n')
+	else if (move[0] == 'r' && (move[1] == 'r' || move[1] == 'a'
+			|| move[1] == 'b') && move[2] == '\n')
 		ft_cmp_rotate(a, b, move);
 	else if (move[0] == 'p' && (move[1] == 'a' || move[1] == 'b')
-			&& move[2] == '\n')
+		&& move[2] == '\n')
 		ft_cmp_push(a, b, move);
-	else if (move[0] == 's' && (move[1] == 's' 
+	else if (move[0] == 's' && (move[1] == 's'
 			|| move[1] == 'a' || move[1] == 'b') && move[2] == '\n')
 		ft_cmp_swap(a, b, move);
 	else

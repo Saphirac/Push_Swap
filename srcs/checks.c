@@ -30,13 +30,13 @@ int	is_digit(char *stack)
 
 int	ft_check_sorted(int *a_stack, int ac)
 {
-	int    i;
+	int	i;
 
-    i = -1;
-    while (++i < ac - 1)
-        if (a_stack[i] > a_stack[i + 1])
-            return (FALSE);
-    return (TRUE);
+	i = -1;
+	while (++i < ac - 1)
+		if (a_stack[i] > a_stack[i + 1])
+			return (FALSE);
+	return (TRUE);
 }
 
 int	ft_check_double(int *tab, int size)
