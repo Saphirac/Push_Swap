@@ -6,7 +6,7 @@
 /*   By: mcourtoi <mcourtoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 17:45:51 by mcourtoi          #+#    #+#             */
-/*   Updated: 2022/04/29 20:56:51 by mcourtoi         ###   ########.fr       */
+/*   Updated: 2022/04/29 21:10:25 by mcourtoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_sort_three(int *a, int size)
 void	ft_sort_f(t_stack a)
 {
 	t_stack	b;
-	int	s;
+	int		s;
 
 	b.arr = ft_calloc(*a.size);
 	b.size = ft_calloc(1);
